@@ -13,6 +13,7 @@ namespace ConsoleApp1
             int sz = 0;
             int xint = 0;
             int yint = 0;
+            bool start = true;
 
             long[,] arr = new long[9, 9];
 
@@ -92,10 +93,20 @@ namespace ConsoleApp1
                 arr[xint, yint] = 1;
             }
 
-            for(int i = 0; i <= 81; i++)
+            while(start)
             {
                 map();
-                text();
+                Console.WriteLine("Zadej pozici 2x1 lodě: \n");
+                start = false;
+            }
+
+            while (start)
+            {
+                for (int i = 0; i <= 81; i++)
+                {
+                    map();
+                    text();
+                }
             }
 
             Console.WriteLine();
