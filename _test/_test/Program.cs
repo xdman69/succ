@@ -29,25 +29,26 @@ namespace _test
                 stringArr[s] = spr;
                 s++;
             }
-
             foreach (char prvek in stringArr)
             {
                 //Console.Write(prvek);
-                if(char.IsNumber(prvek)) // Pocitani cislic
+                if (char.IsDigit(prvek)) // Pocitani cislic
                 {
                     pomocna = pomocna + 1;
-
                 }
-
-                if (char.IsLetter(prvek))
+                if (!char.IsDigit(prvek))
                 {
                     if(pomocna >= 1)
                     {
-                        pomocna = 1;
-                        pocet = pocet + pomocna;
-
+                        pocet = pocet + 1;
+                        pomocna = 0;
                     }
                 }
+            }
+
+            if(pomocna >= 1)
+            {
+                pocet = pocet + 1;
             }
 
             Console.WriteLine(pocet);
