@@ -93,13 +93,13 @@ namespace ConsoleApp1
                 arr[xint, yint] = 1;
             }
 
-            while(start)
+            /*while(start)
             {
                 map();
                 Console.WriteLine("Zadej pozici 2x1 lodě: \n");
                 start = false;
             }
-
+            */
             while (start)
             {
                 for (int i = 0; i <= 81; i++)
