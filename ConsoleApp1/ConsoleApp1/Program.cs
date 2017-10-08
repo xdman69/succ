@@ -17,11 +17,15 @@ namespace ConsoleApp1
 
             long[,] arr = new long[9, 9];
             long[,] arr2 = new long[9, 9];
+            long[,] arrPlay = new long[9, 9];
+            long[,] arr2Play = new long[9, 9];
 
             for (int i = 0; i < 9; i++)
             {
                 arr[sz, sz] = 0;
                 arr2[sz, sz] = 0;
+                arrPlay[sz, sz] = 0;
+                arr2Play[sz, sz] = 0;
                 sz = sz + 1;
             }
 
@@ -29,6 +33,7 @@ namespace ConsoleApp1
             int colLength = arr.GetLength(1);
             string rotace = "";
             int player = 1;
+            int play = 0;
 
             void map(int current) {
                 for (int i = 0; i < rowLength; i++)
@@ -38,11 +43,20 @@ namespace ConsoleApp1
                         if (current == 1)
                         {
                             Console.Write(string.Format("{0} ", arr[i, j]));
-                        } else
+                        }
+                        else if(current == 2)
                         {
                             Console.Write(string.Format("{0} ", arr2[i, j]));
                         }
-   
+                        else if (current == 3)
+                        {
+                            Console.Write(string.Format("{0} ", arrPlay[i, j]));
+                        }
+                        else if (current == 4)
+                        {
+                            Console.Write(string.Format("{0} ", arr2Play[i, j]));
+                        }
+
                     }
                     Console.Write(Environment.NewLine + Environment.NewLine);
                 }
@@ -248,15 +262,34 @@ namespace ConsoleApp1
                     for (int i = 0; i <= 81; i++)
                     {
                         Console.WriteLine("Hraje {0}. hráč\n", player);
-                        map(player);
+                        map(play);
                         text();
                         if (i % 2 == 0)
                         {
-                            arr2[xint, yint] = 1;
+                            if (arr2[xint, yint] == 0)
+                            {
+                                Console.WriteLine("Minul jsi");
+                                arr2Play[xint, yint] = 3;
+                            } else
+                            {
+                                Console.WriteLine("Zásah!");
+                                arr2Play[xint, yint] = 1;
+                            }
+                            play = 3;
                             player--;
                         } else
                         {
-                            arr[xint, yint] = 1;
+                            if (arr[xint, yint] == 0)
+                            {
+                                Console.WriteLine("Minul jsi");
+                                arrPlay[xint, yint] = 3;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Zásah!");
+                                arrPlay[xint, yint] = 1;
+                            }
+                            play = 4;
                             player++;
                         }
 
