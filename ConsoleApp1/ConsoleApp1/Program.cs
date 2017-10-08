@@ -42,19 +42,19 @@ namespace ConsoleApp1
                     {
                         if (current == 1)
                         {
-                            Console.Write(string.Format("{0} ", arr[i, j]));
+                            Console.Write(string.Format("{0}  ", arr[i, j]));
                         }
                         else if(current == 2)
                         {
-                            Console.Write(string.Format("{0} ", arr2[i, j]));
+                            Console.Write(string.Format("{0}  ", arr2[i, j]));
                         }
                         else if (current == 3)
                         {
-                            Console.Write(string.Format("{0} ", arrPlay[i, j]));
+                            Console.Write(string.Format("{0}  ", arrPlay[i, j]));
                         }
                         else if (current == 4)
                         {
-                            Console.Write(string.Format("{0} ", arr2Play[i, j]));
+                            Console.Write(string.Format("{0}  ", arr2Play[i, j]));
                         }
 
                     }
