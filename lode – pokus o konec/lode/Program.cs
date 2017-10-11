@@ -29,22 +29,29 @@ namespace ConsoleApp1
                 sz = sz + 1;
             }
 
-            int rowLength = arr.GetLength(0);
-            int colLength = arr.GetLength(1);
+            int radek = arr.GetLength(0);
+            int sloupec = arr.GetLength(1);
             string rotace = "";
             int player = 1;
             int play = 0;
+                 
 
-            void map(int current) {
-                for (int i = 0; i < rowLength; i++)
+
+
+
+
+
+            void mapa(int current)
+            {
+                for (int i = 0; i < radek; i++)
                 {
-                    for (int j = 0; j < colLength; j++)
+                    for (int j = 0; j < sloupec; j++)
                     {
                         if (current == 1)
                         {
                             Console.Write(string.Format("{0}  ", arr[i, j]));
                         }
-                        else if(current == 2)
+                        else if (current == 2)
                         {
                             Console.Write(string.Format("{0}  ", arr2[i, j]));
                         }
@@ -62,6 +69,10 @@ namespace ConsoleApp1
                 }
             }
 
+
+
+
+
             void rotation()
             {
                 while (true)
@@ -73,22 +84,26 @@ namespace ConsoleApp1
                         if (rotace != "H" && rotace != "V" && rotace != "h" && rotace != "v")
                         {
                             continue;
-                        } else
+                        }
+                        else
                         {
                             break;
                         }
                     }
-                    catch(Exception)
+                    catch (Exception)
                     {
 
                     }
                 }
 
             }
+
+
+
             void text()
             {
-                Console.WriteLine("\nZadej pozici\n");
-                
+                Console.WriteLine("\nPozice\n");
+
                 while (true)
                 {
                     try
@@ -99,7 +114,7 @@ namespace ConsoleApp1
                         xint = xint - 1;
                         if (xint > 8 || xint < 0)
                         {
-                            Console.WriteLine("Pouze v rozmezí 1 - 9");
+                            Console.WriteLine("Zadej pouze 1 až 9");
                             continue;
                         }
                         else
@@ -123,7 +138,7 @@ namespace ConsoleApp1
                         yint = yint - 1;
                         if (yint > 8 || yint < 0)
                         {
-                            Console.WriteLine("Pouze v rozmezí 1 - 9");
+                            Console.WriteLine("Zadej pouze 1 až 9");
                             continue;
                         }
                         else
@@ -137,15 +152,17 @@ namespace ConsoleApp1
                         Console.WriteLine("Pouze čísla\n");
                     }
                 }
-
-                //arr[xint, yint] = 1;
             }
+
+/////////////////////////////////////////////////////////////////////////////
+////////////////////////////UMISTOVANI LODI - hrac 1/////////////////////////
+/////////////////////////////////////////////////////////////////////////////
             void building()
             {
                 while (start)
-                {
+                {  
                     Console.WriteLine("Hraje {0}. hráč\n", player);
-                    map(player);
+                    mapa(player);
                     Console.WriteLine("Zadej pozici 2x1 lodě: \n");
                     rotation();
                     text();
@@ -160,7 +177,7 @@ namespace ConsoleApp1
                         arr[xint, yint + 1] = 2;
                     }
 
-                    map(player);
+                    mapa(player);
                     Console.WriteLine("Zadej pozici 3x1 lodě: \n");
                     rotation();
                     text();
@@ -177,7 +194,7 @@ namespace ConsoleApp1
                         arr[xint, yint + 2] = 2;
                     }
 
-                    map(player);
+                    mapa(player);
                     Console.WriteLine("Zadej pozici 4x1 lodě: \n");
                     rotation();
                     text();
@@ -196,10 +213,20 @@ namespace ConsoleApp1
                         arr[xint, yint + 3] = 2;
                     }
                     player = 2;
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+////////////////////////////UMISTOVANI LODI - hrac 2/////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+
                     if (player == 2)
                     {
                         Console.WriteLine("Hraje {0}. hráč\n", player);
-                        map(player);
+                        mapa(player);
                         Console.WriteLine("Zadej pozici 2x1 lodě: \n");
                         rotation();
                         text();
@@ -214,7 +241,7 @@ namespace ConsoleApp1
                             arr2[xint, yint + 1] = 2;
                         }
 
-                        map(player);
+                        mapa(player);
                         Console.WriteLine("Zadej pozici 3x1 lodě: \n");
                         rotation();
                         text();
@@ -231,7 +258,7 @@ namespace ConsoleApp1
                             arr2[xint, yint + 2] = 2;
                         }
 
-                        map(player);
+                        mapa(player);
                         Console.WriteLine("Zadej pozici 4x1 lodě: \n");
                         rotation();
                         text();
@@ -251,12 +278,18 @@ namespace ConsoleApp1
                         }
                         break;
                     }
-                    //start = false;
+
                 }
             }
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////BATTLE///////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+     
             player = 1;
-            int ctr = 0;
-            int ctr2 = 0;
             void battle()
             {
                 while (true)
@@ -264,72 +297,98 @@ namespace ConsoleApp1
                     for (int i = 0; i <= 81; i++)
                     {
                         Console.WriteLine("Hraje {0}. hráč\n", player);
-                        map(play);
+                        mapa(play);
                         text();
                         if (i % 2 == 0)
                         {
                             if (arr2[xint, yint] == 0)
                             {
-                                Console.WriteLine("Minul jsi");
+                                Console.WriteLine("MISS");
                                 arr2Play[xint, yint] = 3;
-                            } else
+                            }
+                            else
                             {
-                                Console.WriteLine("Zásah!");
+                                Console.WriteLine("TREFA");
                                 arr2Play[xint, yint] = 1;
-                                ctr++;
-                                if(ctr >= 9)
-                                {
-                                    Console.Clear();
-                                    break;
-                                }
-
                             }
                             play = 3;
                             player--;
-                        } else
+                        }
+
+
+
+                        else
                         {
                             if (arr[xint, yint] == 0)
                             {
-                                Console.WriteLine("Minul jsi");
+                                Console.WriteLine("MISS");
                                 arrPlay[xint, yint] = 3;
                             }
                             else
                             {
-                                Console.WriteLine("Zásah!");
+                                Console.WriteLine("TREFA");
                                 arrPlay[xint, yint] = 1;
-                                ctr2++;
-                                if(ctr2 >= 9)
-                                {
-                                    Console.Clear();
-                                    break;
-                                }
-
                             }
                             play = 4;
                             player++;
+
+
                         }
-                    if (ctr >= 9)
-                    {
-                        break;
+
+
                     }
-                    else if (ctr2 >= 9)
-                    {
-                        break;
-                    }
-                    }
-                if (ctr >= 9)
-                {
-                    break;
+
+
                 }
-                else if (ctr2 >= 9)
+
+
+            }
+
+
+            int ctr = 0;
+
+            for (int x = 0; x < 7; x++)
+            {
+                for (int y = 0; y < 7; y++)
                 {
-                    break;
-                }
+                    if (arrPlay[x, y] == 1)
+                    {
+                        ctr++;
+                        if (ctr == 9)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Vyhrál hráč 1");
+                            Console.ReadLine();
+                        }
+                    }
                 }
             }
+
+
+
+
+            int ctr2 = 0;
+
+            for (int x = 0; x < arr2Play.Length-1; x++)
+            {
+                for (int y = 0; y < arr2Play.Length-1; y++)
+                {
+                    if (arr2Play[x, y] == 1)
+                    {
+                        ctr2++;
+                        if (ctr2 == 9)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Vyhrál hráč 2");
+                            Console.ReadLine();
+                        }
+                    }
+                }
+            }
+
+
             building();
             battle();
-            Console.WriteLine("Vyhrál hráč {0}", player);
 
             Console.WriteLine();
         }
