@@ -272,7 +272,12 @@ namespace ConsoleApp1
                             {
                                 Console.WriteLine("Minul jsi");
                                 arr2Play[xint, yint] = 3;
-                            } else
+                            }
+                            else if (arr2Play[xint, yint] == 1)
+                            {
+                                Console.WriteLine("Sem už jsi střelil");
+                            }
+                            else if (arr2[xint, yint] == 2)
                             {
                                 Console.WriteLine("Zásah!");
                                 arr2Play[xint, yint] = 1;
@@ -293,7 +298,11 @@ namespace ConsoleApp1
                                 Console.WriteLine("Minul jsi");
                                 arrPlay[xint, yint] = 3;
                             }
-                            else
+                            else if (arrPlay[xint, yint] == 1) 
+                            {
+                                Console.WriteLine("Sem už jsi střelil");
+                            }
+                            else if (arr[xint, yint] == 2)
                             {
                                 Console.WriteLine("Zásah!");
                                 arrPlay[xint, yint] = 1;
