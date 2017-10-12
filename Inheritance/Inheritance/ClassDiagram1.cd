@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Inheritance.author">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>author.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inheritance.book">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAEAAAAAAQAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inheritance.ebook">
+    <Position X="5.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAEAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ebook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inheritance.paperbook">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAgCAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>paperbook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -33,6 +33,7 @@ namespace Domy
 
             foreach(rodiny rodina in seznamRodin)
             {
+                textKVraceni += rodina.cislo + ". ";
                 textKVraceni += rodina.Prijmeni;
                 textKVraceni += Environment.NewLine;
             }

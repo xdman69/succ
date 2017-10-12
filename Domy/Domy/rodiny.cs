@@ -10,6 +10,7 @@ namespace Domy
     {
 
         public string Prijmeni;
+        public int cislo;
 
         public rodiny(string Prijmeni)
         {

@@ -21,10 +21,16 @@ namespace Domy
             {
                 dum, dum2
             };
-            /*List<rodiny> seznamRodin = new List<rodiny>()
+            List<rodiny> seznamRodin = new List<rodiny>()
             {
-                rodina
-            };*/
+                rodina, rodina2
+            };
+            int d = 1;
+            foreach(var p in seznamRodin)
+            {
+                p.cislo = d;
+                d = d + 1;
+            }
             List<clenove> seznamClenu = new List<clenove>()
             {
                 clen
@@ -83,7 +89,14 @@ namespace Domy
                             Console.Clear();
                             x--;
                             Console.WriteLine(seznamDomu[x].Toxd());
-                            break;
+                            Console.WriteLine("Jakou rodinu chceš prohledat: ");
+                            string choice3 = Console.ReadLine();
+                            int y = int.Parse(choice3);
+                            if (y > 0 && y <= seznamRodin.Count)
+                            {
+                                Console.Clear();
+                                x--;
+                            }
                         }
                         else
                         {
@@ -96,6 +109,7 @@ namespace Domy
                     }
                 }
             }
+            Console.ReadLine();
         }
     }
 }
