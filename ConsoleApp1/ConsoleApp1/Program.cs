@@ -34,10 +34,13 @@ namespace ConsoleApp1
             string rotace = "";
             int player = 1;
             int play = 0;
+            int pos = 1;
 
             void map(int current) {
+                Console.Write("   1  2  3  4  5  6  7  8  9\n  --------------------------\n");
                 for (int i = 0; i < rowLength; i++)
                 {
+                    Console.Write(pos + "| ");
                     for (int j = 0; j < colLength; j++)
                     {
                         if (current == 1)
@@ -56,9 +59,13 @@ namespace ConsoleApp1
                         {
                             Console.Write(string.Format("{0}  ", arr2Play[i, j]));
                         }
-
                     }
                     Console.Write(Environment.NewLine + Environment.NewLine);
+                    pos++;
+                    if(pos > 9)
+                    {
+                        pos = 1;
+                    }
                 }
             }
 
@@ -312,11 +319,19 @@ namespace ConsoleApp1
                                     Console.Clear();
                                     break;
                                 }
-
                             }
                             play = 4;
                             player++;
                         }
+                        if (ctr >= 9)
+                        {
+                            break;
+                        }
+                        else if (ctr2 >= 9)
+                        {
+                            break;
+                        }
+                    }
                     if (ctr >= 9)
                     {
                         break;
@@ -325,15 +340,6 @@ namespace ConsoleApp1
                     {
                         break;
                     }
-                    }
-                if (ctr >= 9)
-                {
-                    break;
-                }
-                else if (ctr2 >= 9)
-                {
-                    break;
-                }
                 }
             }
             building();
