@@ -23,7 +23,7 @@ namespace Inheritance
 
         public override string ToString()
         {
-            return "Kniha " + Name + " má ISBN kód: " + ISBN + " a jejím autorem je " + autor.FirstName + " "  + autor.LastName;
+            return Name + " | ISBN: " + ISBN + " | Autor: " + autor.FirstName + " "  + autor.LastName;
         }
 
     }

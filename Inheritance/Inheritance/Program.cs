@@ -11,9 +11,10 @@ namespace Inheritance
         static void Main(string[] args)
         {
             author autorKnihy = new author("Karel", "Novák");
-            author autorKnihy2 = new author("Pepa", "Kokot");
+            author autorKnihy2 = new author("Pepa", "Lmao");
 
             book kniha = new book("Velká encyklopedie piva", 154564564, autorKnihy);
+            book kniha2 = new book("Malá encyklopedie piva", 454577575, autorKnihy);
 
             ebook ekniha = new ebook("Vaření piva 101", "1337", 125, autorKnihy2);
 
@@ -28,7 +29,7 @@ namespace Inheritance
 
             List<book> seznamKnih = new List<book>()
             {
-                kniha
+                kniha, kniha2
             };
 
             List<ebook> seznamEKnih = new List<ebook>()
@@ -40,13 +41,25 @@ namespace Inheritance
             {
                 papKniha
             };
-
+            Console.WriteLine("Knihy:\n");
+            foreach(var p in seznamKnih)
+            {
+                Console.WriteLine(p.ToString());
+            }
+            Console.WriteLine("\neKnihy:\n");
             foreach(var p in seznamEKnih)
             {
                 Console.WriteLine(p.ToString());
             }
-
-
+            Console.WriteLine("\nPapírové Knihy:\n");
+            foreach(var p in seznamPAPKnih)
+            {
+                Console.WriteLine(p.ToString());
+            }
+            
+            Console.WriteLine("1. Zapsat knihu\n2. Ukončit");
+        
+            Console.ReadLine();
 
         }
     }
