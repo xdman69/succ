@@ -23,7 +23,7 @@ namespace Inheritance
 
         public override string ToString()
         {
-            return Name + " | ISBN: " + ISBN + " | Autor: " + autor.FirstName + " "  + autor.LastName;
+            return Name + " | Autor: " + autor.FirstName + " "  + autor.LastName;
         }
 
     }

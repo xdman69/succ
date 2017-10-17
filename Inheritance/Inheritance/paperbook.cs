@@ -23,7 +23,7 @@ namespace Inheritance
 
         public override string ToString()
         {
-            return  Name + " | Váha: " + Weight + " Kilo | Na Skladě: " + Stock + " Kusů | Autor: " + autor.FirstName + " " + autor.LastName;
+            return  Name + " | Váha: " + Weight + " Kg | Na Skladě: " + Stock + " Kusů | Autor: " + autor.FirstName + " " + autor.LastName ;
         }
     }
 }

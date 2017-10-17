@@ -346,7 +346,7 @@ namespace ConsoleApp1
             battle();
             Console.WriteLine("Vyhrál hráč {0}", player);
 
-            Console.WriteLine();
+            Console.ReadLine();
         }
     }
 }
