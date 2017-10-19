@@ -10,6 +10,7 @@ namespace Inheritance
     {
         static void Main(string[] args)
         {
+
             author autorKnihy = new author("Karel", "Novák");
             author autorKnihy2 = new author("Pepa", "Lmao");
             

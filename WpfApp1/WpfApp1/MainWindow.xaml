@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Přidej!" FontSize="40px" Margin="20,20,0,0" HorizontalAlignment="left" VerticalAlignment="Top" Click="Button_Click" Height="70" Width="220"/>
+        <Button Content="Přidej!" FontSize="40px" Margin="0,20,20,0" HorizontalAlignment="right" VerticalAlignment="Top" Click="Button_Click_1" Height="70" Width="220"/>
+        <ListView x:Name="peopleList" HorizontalAlignment="left" Height="169" Margin="20,120,0,0" VerticalAlignment="Top" Width="220">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="counter" Content="0" FontSize="89px" HorizontalAlignment="right" Margin="0,120,20,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

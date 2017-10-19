@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfAppMaterial.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppMaterial"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <materialDesign:Card Padding="32" Margin="16">
+            <TextBlock x:Name="question" Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
+        </materialDesign:Card>
+        <Button x:Name="answ1" Content="Odpověď 1" HorizontalAlignment="left" Margin="50,200
+                ,0,0" VerticalAlignment="Top" Width="146" Height="62" Style="{DynamicResource MaterialDesignRaisedLightButton}" Click="answ1_Click"/>
+        <Button x:Name="answ2" Content="Odpověď 2" HorizontalAlignment="right" Margin="0,200,50,0" VerticalAlignment="Top" Width="146" Height="62" Style="{DynamicResource MaterialDesignRaisedLightButton}" Click="answ2_Click"/>
+        <ProgressBar x:Name="proBar" HorizontalAlignment="center" Height="20" Margin="0,291,0,0" VerticalAlignment="Top" Width="420" Background="#FF96DA8F" BorderBrush="{x:Null}"/>
+    </Grid>
+</Window>
