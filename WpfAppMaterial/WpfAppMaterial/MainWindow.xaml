@@ -18,9 +18,9 @@
         <materialDesign:Card Padding="32" Margin="16">
             <TextBlock x:Name="question" Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
         </materialDesign:Card>
-        <Button x:Name="answ1" Content="Odpověď 1" HorizontalAlignment="left" Margin="50,200
+        <Button x:Name="answ1" Content="Konec" HorizontalAlignment="left" Margin="50,200
                 ,0,0" VerticalAlignment="Top" Width="146" Height="62" Style="{DynamicResource MaterialDesignRaisedLightButton}" Click="answ1_Click"/>
-        <Button x:Name="answ2" Content="Odpověď 2" HorizontalAlignment="right" Margin="0,200,50,0" VerticalAlignment="Top" Width="146" Height="62" Style="{DynamicResource MaterialDesignRaisedLightButton}" Click="answ2_Click"/>
+        <Button x:Name="answ2" Content="Hrát" HorizontalAlignment="right" Margin="0,200,50,0" VerticalAlignment="Top" Width="146" Height="62" Style="{DynamicResource MaterialDesignRaisedLightButton}" Click="answ2_Click"/>
         <ProgressBar x:Name="proBar" HorizontalAlignment="center" Height="20" Margin="0,291,0,0" VerticalAlignment="Top" Width="420" Background="#FF96DA8F" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>
