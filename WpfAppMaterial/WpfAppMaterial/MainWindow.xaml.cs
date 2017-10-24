@@ -52,7 +52,7 @@ namespace WpfAppMaterial
 
             }
 
-            int rand = random.Next(0, 10);
+            int rand = random.Next(0, 3);
 
             int num1 = random.Next(0, 100);
             int num2 = random.Next(0, 100);
@@ -75,7 +75,7 @@ namespace WpfAppMaterial
                 progress = 100;
                 question.Text = "Vyhrál jsi!";
                 answ1.Content = "Konec";
-                answ2.Content = "Konec";
+                answ2.Content = "Znovu";
             }
             else if (proBar.Value <= 0)
             {
@@ -98,14 +98,14 @@ namespace WpfAppMaterial
             {
                 if ((string)answ2.Content == "Znovu")
                 {
-                    Environment.Exit(0);
+                    proBar.Value = progress = progress - 100;
                 }
             } catch(Exception)
             {
 
             }
 
-            int rand = random.Next(0, 10);
+            int rand = random.Next(0, 3);
 
             int num1 = random.Next(0, 100);
             int num2 = random.Next(0, 100);
@@ -132,7 +132,7 @@ namespace WpfAppMaterial
                 progress = 100;
                 question.Text = "Vyhrál jsi!";
                 answ1.Content = "Konec";
-                answ2.Content = "Konec";
+                answ2.Content = "Znovu";
             }
             else if (proBar.Value <= 0)
             {

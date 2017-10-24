@@ -16,7 +16,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <materialDesign:Card Padding="32" Margin="16">
-            <TextBlock x:Name="question" Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
+            <TextBlock x:Name="question" Style="{DynamicResource MaterialDesignTitleTextBlock}">Spočítej všechny příklady!</TextBlock>
         </materialDesign:Card>
         <Button x:Name="answ1" Content="Konec" HorizontalAlignment="left" Margin="50,200
                 ,0,0" VerticalAlignment="Top" Width="146" Height="62" Style="{DynamicResource MaterialDesignRaisedLightButton}" Click="answ1_Click"/>
