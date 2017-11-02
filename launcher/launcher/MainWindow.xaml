@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:launcher"
+        Icon="D:\valesja15\icon.png"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1100">
+        Title="Wow Launcher 69" Height="700" Width="1100">
     <Grid>
         <ListView x:Name="exeList" HorizontalAlignment="center" Height="600" Margin="0, 30,0,0" VerticalAlignment="Top" Width="1000" SelectionChanged="exeList_SelectionChanged">
             <ListView.View>
