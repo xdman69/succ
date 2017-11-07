@@ -33,6 +33,15 @@ namespace launcher
                 foreach(string exe in array1)
                 {
                     exeList.Items.Add(exe);
+                    var file = Directory.GetFiles(add + @"\" + folder + @"\bin\Debug", "info.csv", SearchOption.AllDirectories);
+                    if (file == null)
+                    {
+                        csvList.Items.Add("info.csv file nenalezen");
+                    }
+                    else
+                    {
+                        csvList.Items.Add("info.csv file nalezen");
+                    }
                 }
             }
         }
@@ -46,5 +55,26 @@ namespace launcher
         {
             Process.Start(exeList.SelectedItem.ToString());
         }
+        private void csvList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = csvList.SelectedIndex;
+            string path = exeList.Items[index].ToString();
+            path = System.IO.Path.GetDirectoryName(path);
+            string file = System.IO.Path.GetFullPath(System.IO.Path.Combine(path, @"..\..\"));
+            file = Directory.GetFiles(path, "info.csv", SearchOption.AllDirectories).ToString();
+
+            if (file == null)
+            {
+                csvList.Items.Add("xddd");
+            }
+            else
+            {
+                StringBuilder csvfile = new StringBuilder();
+                string csvpath = path;
+
+            }
+
+        }
+
     }
 }
