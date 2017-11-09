@@ -27,22 +27,22 @@ namespace FileControl
     public partial class MainWindow : Window
     {
         ObservableCollection<score> scr = new ObservableCollection<score>();
-        [DelimitedRecord("|")]
+        /*[DelimitedRecord("|")]*/
 
 
-        public class Orders
+        /*public class Orders
         {
             public string Name;
 
             public string Score;
 
-        }
+        }*/
         public MainWindow()
         {
             InitializeComponent();
             ScoreList.ItemsSource = scr;
 
-            var engine = new FileHelperEngine<Orders>();
+            /*var engine = new FileHelperEngine<Orders>();
             var records = engine.ReadFile(Directory.GetCurrentDirectory() + "\\data.txt");
             if (records != null)
             {
@@ -50,7 +50,7 @@ namespace FileControl
                 {
                     scr.Add(new score(record.Name, record.Score));
                 }
-            }
+            }*/
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -71,7 +71,7 @@ namespace FileControl
                 warning.Content = "Odesláno";
                 warning.Foreground = new SolidColorBrush(Colors.Green);
 
-                var engine = new FileHelperEngine<Orders>();
+                /*var engine = new FileHelperEngine<Orders>();
 
                 var orders = new List<Orders>();
 
@@ -88,15 +88,15 @@ namespace FileControl
                 foreach (var record in records)
                 {
                     scr.Add(new score(record.Name, record.Score));
-                }
+                }*/
 
-                /*StringBuilder csvcontent = new StringBuilder();
+                StringBuilder csvcontent = new StringBuilder();
                 csvcontent.Append(NameTextBox.Text + "|");
                 csvcontent.Append(NumberTextBox.Text);
                 csvcontent.AppendLine("");
                 string csvpath = Directory.GetCurrentDirectory() + "\\data.txt";
                 warning.Content = csvpath;
-                File.AppendAllText(csvpath, csvcontent.ToString());*/
+                File.AppendAllText(csvpath, csvcontent.ToString());
             }
 
         }

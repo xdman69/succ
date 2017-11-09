@@ -27,6 +27,6 @@
             </ListView.View>
         </ListView>
         <Button Content="Odeslat" HorizontalAlignment="center" Margin="378,149,58,0" VerticalAlignment="Top" Width="81" Click="Button_Click"/>
-        <Label Content="" x:Name="warning" HorizontalAlignment="center" Margin="231,153,151,0" HorizontalContentAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="-0.437,-0.296" Foreground="#DDFF0000" FontWeight="Bold" Width="135"/>
+        <Label Content="" x:Name="warning" HorizontalAlignment="center" Margin="0,153,338,0" HorizontalContentAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="-0.437,-0.296" Foreground="#DDFF0000" FontWeight="Bold" Width="554"/>
     </Grid>
 </Window>
