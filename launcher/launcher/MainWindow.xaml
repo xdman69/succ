@@ -1,5 +1,4 @@
 ﻿<Window x:Class="launcher.MainWindow"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -11,8 +10,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:launcher"
-        Icon="D:\valesja15\icon.png"
         mc:Ignorable="d"
         Title="Wow Launcher 69" Height="770" Width="1100">
     <Grid>

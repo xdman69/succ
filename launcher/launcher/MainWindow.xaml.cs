@@ -27,7 +27,7 @@ namespace launcher
 
         public void launcher()
         {
-            string[] array = Directory.GetFiles(@"C:\users\valesja15\Source", "*.sln", SearchOption.AllDirectories);
+            string[] array = Directory.GetFiles(@"C:\users\Honza\Source", "*.sln", SearchOption.AllDirectories);
             foreach (string name in array)
             {
                 string add = System.IO.Path.GetDirectoryName(name).ToString();
@@ -36,16 +36,15 @@ namespace launcher
                 foreach (string exe in array1)
                 {
                     exeList.Items.Add(exe);
+                    delList.Items.Add("Delete project");
                     exeList_Copy.Items.Add(folder);
                     if (File.Exists(add + @"\" + folder + @"\bin\Debug\info.csv"))
                     {
                         csvList.Items.Add("info.csv found");
-                        delList.Items.Add("Delete");
                     }
                     else
                     {
                         csvList.Items.Add("info.csv not found");
-                        delList.Items.Add("");
                     }
                 }
             }
@@ -93,12 +92,22 @@ namespace launcher
             int index = delList.SelectedIndex;
             string path = exeList.Items[index].ToString();
             path = System.IO.Path.GetDirectoryName(path);
-            string file = System.IO.Path.GetFullPath(System.IO.Path.Combine(path, @"..\..\"));
-            file = Directory.GetFiles(path, "info.csv", SearchOption.AllDirectories).ToString();
+            string newPath = System.IO.Path.GetFullPath(System.IO.Path.Combine(path, @"..\..\..\"));
+            //file = Directory.GetFiles(path, "info.csv", SearchOption.AllDirectories).ToString();
 
-            if (File.Exists(path + @"\info.csv"))
+            if (Directory.Exists(newPath))
             {
-                File.Delete(path + @"\info.csv");
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to delete " + exeList_Copy.Items[index].ToString() + "?",
+                "Delete project",
+                MessageBoxButton.YesNo);
+                            if (result == MessageBoxResult.No)
+                            {
+                                
+                            }
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                Directory.Delete(newPath, true);
+                            }
             }
             else
             {
