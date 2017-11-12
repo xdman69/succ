@@ -11,11 +11,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Wow Launcher 69" Height="770" Width="1100">
+        Title="Launcher v.69" Height="770" Width="1300">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="60*"/>
         </Grid.ColumnDefinitions>
         <ListView x:Name="exeList" HorizontalAlignment="left" Height="600" Margin="46,95,0,0" Width="450" VerticalAlignment="Top" SelectionChanged="exeList_SelectionChanged" Visibility="Hidden">
             <ListView.View>
@@ -24,14 +24,14 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="csvList" HorizontalAlignment="right" Height="600" Margin="0,95,265,0" Width="219" VerticalAlignment="Top" SelectionChanged="csvList_SelectionChanged" Grid.Column="1">
+        <ListView x:Name="csvList" HorizontalAlignment="right" Height="600" Margin="0,95,487,0" Width="219" VerticalAlignment="Top" SelectionChanged="csvList_SelectionChanged" Grid.Column="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="delList" HorizontalAlignment="right" Height="600" Margin="0,95,39,0" Width="219" VerticalAlignment="Top" SelectionChanged="delList_SelectionChanged" Foreground="#DDFF0000" Grid.Column="1">
+        <ListView x:Name="delList" HorizontalAlignment="right" Height="600" Margin="0,95,261,0" Width="219" VerticalAlignment="Top" SelectionChanged="delList_SelectionChanged" Foreground="#DDFF0000" Grid.Column="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -39,8 +39,15 @@
             </ListView.View>
         </ListView>
         <Label Content=" .exe Files" HorizontalAlignment="Left" Margin="46,33,0,0" VerticalAlignment="Top" Width="450" Height="62" Background="#FF009688" FontSize="36" FontFamily="Yu Gothic Light"/>
-        <Label Content=" .csv Files" HorizontalAlignment="right" Margin="0,33,37,0" VerticalAlignment="Top" Width="445" Height="62" Background="#FF009688" FontSize="36" FontFamily="Yu Gothic Light" Grid.Column="1"/>
+        <Label Content=" Edit" HorizontalAlignment="right" Margin="0,33,37,0" VerticalAlignment="Top" Width="669" Height="62" Background="#FF009688" FontSize="36" FontFamily="Yu Gothic Light" Grid.Column="1"/>
         <ListView x:Name="exeList_Copy" HorizontalAlignment="left" Height="600" Margin="46,95,0,0" Width="450" VerticalAlignment="Top" SelectionChanged="exeList_SelectionChanged" FontWeight="Bold">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="copyList" HorizontalAlignment="right" Height="600" Margin="0,95,37,0" Width="219" VerticalAlignment="Top" Grid.Column="1" SelectionChanged="copyList_SelectionChanged" Foreground="BlueViolet">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

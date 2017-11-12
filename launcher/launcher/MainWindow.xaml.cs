@@ -16,6 +16,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FileHelpers;
 using System.Reflection;
+using System.Windows.Forms;
+using Microsoft.VisualBasic;
+using System.ComponentModel;
 
 namespace launcher
 {
@@ -24,7 +27,7 @@ namespace launcher
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        public int SelectedIndex { get; set; }
         public void launcher()
         {
             string[] array = Directory.GetFiles(@"C:\users\Honza\Source", "*.sln", SearchOption.AllDirectories);
@@ -37,14 +40,15 @@ namespace launcher
                 {
                     exeList.Items.Add(exe);
                     delList.Items.Add("Delete project");
+                    copyList.Items.Add("Copy project");
                     exeList_Copy.Items.Add(folder);
                     if (File.Exists(add + @"\" + folder + @"\bin\Debug\info.csv"))
                     {
-                        csvList.Items.Add("info.csv found");
+                        csvList.Items.Add("info.csv found            |  Edit");
                     }
                     else
                     {
-                        csvList.Items.Add("info.csv not found");
+                        csvList.Items.Add("info.csv not found     |  Create");
                     }
                 }
             }
@@ -71,7 +75,17 @@ namespace launcher
 
             if (File.Exists(path + @"\info.csv"))
             {
-                Process.Start(path + @"\info.csv".ToString());
+                MessageBoxResult result = System.Windows.MessageBox.Show("Do you want to edit or delete info.csv?\nYes = Delete\nNo = Edit",
+                "Edit project",
+                MessageBoxButton.YesNoCancel);
+                if (result == MessageBoxResult.No)
+                {
+                    Process.Start(path + @"\info.csv".ToString());
+                }
+                if (result == MessageBoxResult.Yes)
+                {
+                    File.Delete(path + @"\info.csv");
+                }
             }
             else
             {
@@ -82,7 +96,6 @@ namespace launcher
                 string csvpath = path + "\\info.csv";
                 File.AppendAllText(csvpath, csvcontent.ToString());
                 Process.Start(path + @"\info.csv".ToString());
-
             }
 
         }
@@ -97,7 +110,7 @@ namespace launcher
 
             if (Directory.Exists(newPath))
             {
-                MessageBoxResult result = MessageBox.Show("Are you sure you want to delete " + exeList_Copy.Items[index].ToString() + "?",
+                MessageBoxResult result = System.Windows.MessageBox.Show("Are you sure you want to delete " + exeList_Copy.Items[index].ToString() + "?",
                 "Delete project",
                 MessageBoxButton.YesNo);
                             if (result == MessageBoxResult.No)
@@ -112,6 +125,58 @@ namespace launcher
             else
             {
 
+            }
+        }
+
+        private void copyList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+
+                    int index = copyList.SelectedIndex;
+                    string path = exeList.Items[index].ToString();
+                    path = System.IO.Path.GetDirectoryName(path);
+                    string newPath = System.IO.Path.GetFullPath(System.IO.Path.Combine(path, @"..\..\..\"));
+
+                     void Copy(string sourceDirectory, string targetDirectory)
+                    {
+                        DirectoryInfo diSource = new DirectoryInfo(sourceDirectory);
+                        DirectoryInfo diTarget = new DirectoryInfo(targetDirectory);
+
+                        CopyAll(diSource, diTarget);
+                    }
+
+                     void CopyAll(DirectoryInfo source, DirectoryInfo target)
+                    {
+                        Directory.CreateDirectory(target.FullName);
+
+                        foreach (FileInfo fi in source.GetFiles())
+                        {
+                            fi.CopyTo(System.IO.Path.Combine(target.FullName, fi.Name), true);
+                        }
+
+                        foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
+                        {
+                            DirectoryInfo nextTargetSubDir =
+                                target.CreateSubdirectory(diSourceSubDir.Name);
+                            CopyAll(diSourceSubDir, nextTargetSubDir);
+                        }
+                    }
+
+                     void Main()
+                    {
+                        string sourceDirectory = newPath;
+                        string targetDirectory = fbd.SelectedPath;
+
+                        Copy(sourceDirectory, targetDirectory);
+                    }
+
+                    Main();
+                }
             }
         }
     }
