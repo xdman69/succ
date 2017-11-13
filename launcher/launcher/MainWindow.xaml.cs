@@ -90,9 +90,11 @@ namespace launcher
             else
             {
                 DateTime today = DateTime.Today;
+                DateTime creation = Directory.GetCreationTime(exeList.Items[index].ToString());
                 StringBuilder csvcontent = new StringBuilder();
-                csvcontent.AppendLine("Created in: " + Assembly.GetEntryAssembly().GetName().Name + " Project");
-                csvcontent.AppendLine("Date of creation of the .csv file: " + today);
+                csvcontent.AppendLine(exeList_Copy.Items[index].ToString() + " Project");
+                csvcontent.AppendLine("Creation time of the project: " + creation);
+                csvcontent.AppendLine("This file has been created on: " + today);
                 string csvpath = path + "\\info.csv";
                 File.AppendAllText(csvpath, csvcontent.ToString());
                 Process.Start(path + @"\info.csv".ToString());
@@ -177,6 +179,24 @@ namespace launcher
 
                     Main();
                 }
+            }
+        }
+
+        private void exeList_Copy_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+
+            var item = VisualTreeHelper.HitTest(exeList_Copy, Mouse.GetPosition(exeList_Copy)).VisualHit;
+
+            // find ListViewItem (or null)
+            while (item != null && !(item is ListBoxItem))
+                item = VisualTreeHelper.GetParent(item);
+
+            if (item != null)
+            {
+                int i = exeList_Copy.Items.IndexOf(((ListBoxItem)item).DataContext);
+                //System.Windows.MessageBox.Show(exeList.Items[i].ToString());
+                exeList_Copy.Tag = exeList.Items[i].ToString();
+                exeList_Copy.ToolTip = ((exeList_Copy.Tag)).ToString();
             }
         }
     }

@@ -11,43 +11,44 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Launcher v.69" Height="770" Width="1300">
+        Title="Launcher" Height="600" Width="1100">
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40*"/>
-            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="65*"/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="exeList" HorizontalAlignment="left" Height="600" Margin="46,95,0,0" Width="450" VerticalAlignment="Top" SelectionChanged="exeList_SelectionChanged" Visibility="Hidden">
+        <ListView x:Name="listExe" HorizontalAlignment="left" Height="600" Margin="35,75,0,0" Width="450" VerticalAlignment="Top" SelectionChanged="listExe_SelectionChanged" Visibility="Hidden">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="csvList" HorizontalAlignment="right" Height="600" Margin="0,95,487,0" Width="219" VerticalAlignment="Top" SelectionChanged="csvList_SelectionChanged" Grid.Column="1">
+        <ListView x:Name="listCsv" HorizontalAlignment="right" Height="475" Margin="0,95,480,0" Width="226" VerticalAlignment="Top" SelectionChanged="listCsv_SelectionChanged" Grid.Column="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="delList" HorizontalAlignment="right" Height="600" Margin="0,95,261,0" Width="219" VerticalAlignment="Top" SelectionChanged="delList_SelectionChanged" Foreground="#DDFF0000" Grid.Column="1">
+        <ListView x:Name="copyList" HorizontalAlignment="right" Height="475" Margin="0,95,261,0" Width="219" VerticalAlignment="Top" Grid.Column="2" Foreground="LimeGreen" SelectionChanged="copyList_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content=" .exe Files" HorizontalAlignment="Stretch" Margin="46,33,0,0" VerticalAlignment="Top" Width="600" Height="62" Background="#FF009688" FontSize="36" FontFamily="Yu Gothic Light"/>
-        <Label Content=" Edit" HorizontalAlignment="right" Margin="0,33,37,0" VerticalAlignment="Top" Width="669" Height="62" Background="#FF009688" FontSize="36" FontFamily="Yu Gothic Light" Grid.Column="1"/>
-        <ListView x:Name="exeList_Copy" HorizontalAlignment="Stretch" Height="600" Margin="46,95,0,0" VerticalAlignment="Top" SelectionChanged="exeList_SelectionChanged" MouseMove="exeList_Copy_MouseMove" FontWeight="Bold">
+        <ListView x:Name="deletel" HorizontalAlignment="right" Height="475" Margin="0,95,37,0" Width="219" VerticalAlignment="Top" Grid.Column="2" Foreground="Red" SelectionChanged="deletel_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="copyList" HorizontalAlignment="right" Height="600" Margin="0,95,37,0" Width="219" VerticalAlignment="Top" Grid.Column="1" SelectionChanged="copyList_SelectionChanged" Foreground="BlueViolet">
+        <Label Content="exe soubory" HorizontalAlignment="Left" Margin="35,33,0,0" VerticalAlignment="Top" Width="301" Height="62"  FontSize="36" FontFamily="Roboto"/>
+        <Label Content="Editování" HorizontalAlignment="Center" Margin="0,33,37,0" VerticalAlignment="Top" Width="669" Height="62"  FontSize="36" FontFamily="Roboto" Grid.Column="2"/>
+        <ListView x:Name="ExeCopyL" HorizontalAlignment="left" Height="465" Margin="46,95,0,0" Width="326" VerticalAlignment="Top" SelectionChanged="listExe_SelectionChanged"  FontWeight="Bold">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
