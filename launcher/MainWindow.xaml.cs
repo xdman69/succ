@@ -30,7 +30,7 @@ namespace launcher
         public int SelectedIndex { get; set; }
         public void launcher()
         {
-            string[] array = Directory.GetFiles(@"D:\valesja15\C#", "*.sln", SearchOption.AllDirectories);
+            string[] array = Directory.GetFiles(@"C:\users\valesja15\Source", "*.sln", SearchOption.AllDirectories);
             foreach (string name in array)
             {
                 string add = System.IO.Path.GetDirectoryName(name).ToString();
