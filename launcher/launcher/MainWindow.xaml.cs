@@ -30,7 +30,7 @@ namespace launcher
         public int SelectedIndex { get; set; }
         public void launcher()
         {
-            string[] array = Directory.GetFiles(@"D:\valesja15\C#", "*.sln", SearchOption.AllDirectories);
+            string[] array = Directory.GetFiles(@"C:\users\valesja15\Source", "*.sln", SearchOption.AllDirectories);
             foreach (string name in array)
             {
                 string add = System.IO.Path.GetDirectoryName(name).ToString();
@@ -115,14 +115,14 @@ namespace launcher
                 MessageBoxResult result = System.Windows.MessageBox.Show("Are you sure you want to delete " + exeList_Copy.Items[index].ToString() + "?",
                 "Delete project",
                 MessageBoxButton.YesNo);
-                            if (result == MessageBoxResult.No)
-                            {
-                                
-                            }
-                            if (result == MessageBoxResult.Yes)
-                            {
-                                Directory.Delete(newPath, true);
-                            }
+                if (result == MessageBoxResult.No)
+                {
+
+                }
+                if (result == MessageBoxResult.Yes)
+                {
+                    Directory.Delete(newPath, true);
+                }
             }
             else
             {
@@ -144,7 +144,7 @@ namespace launcher
                     path = System.IO.Path.GetDirectoryName(path);
                     string newPath = System.IO.Path.GetFullPath(System.IO.Path.Combine(path, @"..\..\..\"));
 
-                     void Copy(string sourceDirectory, string targetDirectory)
+                    void Copy(string sourceDirectory, string targetDirectory)
                     {
                         DirectoryInfo diSource = new DirectoryInfo(sourceDirectory);
                         DirectoryInfo diTarget = new DirectoryInfo(targetDirectory);
@@ -152,7 +152,7 @@ namespace launcher
                         CopyAll(diSource, diTarget);
                     }
 
-                     void CopyAll(DirectoryInfo source, DirectoryInfo target)
+                    void CopyAll(DirectoryInfo source, DirectoryInfo target)
                     {
                         Directory.CreateDirectory(target.FullName);
 
@@ -169,7 +169,7 @@ namespace launcher
                         }
                     }
 
-                     void Main()
+                    void Main()
                     {
                         string sourceDirectory = newPath;
                         string targetDirectory = fbd.SelectedPath;
@@ -187,6 +187,7 @@ namespace launcher
 
             var item = VisualTreeHelper.HitTest(exeList_Copy, Mouse.GetPosition(exeList_Copy)).VisualHit;
 
+            // find ListViewItem (or null)
             while (item != null && !(item is ListBoxItem))
                 item = VisualTreeHelper.GetParent(item);
 

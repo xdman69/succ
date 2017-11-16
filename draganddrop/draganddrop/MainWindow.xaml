@@ -6,7 +6,21 @@
         xmlns:local="clr-namespace:draganddrop"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <Canvas Margin="149,0,0,0">
+        <Rectangle Fill="#FFE5EE94" Height="100" Canvas.Left="-136" Canvas.Top="15" Width="102" MouseLeftButtonDown="shape_MouseLeftButtonDown" MouseLeftButtonUp="shape_MouseLeftButtonUp" MouseMove="shape_MouseMove" ToolTip="STŮL"/>
+        <Rectangle Fill="#FF5C5CD1" Height="142" Canvas.Left="-136" Canvas.Top="120" Width="50" MouseLeftButtonDown="shape_MouseLeftButtonDown" MouseLeftButtonUp="shape_MouseLeftButtonUp" MouseMove="shape_MouseMove" ToolTip="BAR"/>
+        <Rectangle Fill="Black" Height="319" Stroke="Black" Width="1" Canvas.Left="10"/>
+        <Rectangle Fill="#FFE5EE94" Height="100" Canvas.Left="-136" Canvas.Top="15" Width="102" MouseLeftButtonDown="shape_MouseLeftButtonDown" MouseLeftButtonUp="shape_MouseLeftButtonUp" MouseMove="shape_MouseMove" ToolTip="STŮL"/>
+        <Rectangle Fill="#FF6DE0AC" Height="37" Canvas.Left="-70" Canvas.Top="120" Width="36" MouseLeftButtonDown="shape_MouseLeftButtonDown" MouseLeftButtonUp="shape_MouseLeftButtonUp" MouseMove="shape_MouseMove" ToolTip="ŽIDLE"/>
+        <Rectangle Fill="#FF6DE0AC" Height="37" Canvas.Left="-70" Canvas.Top="120" Width="36" MouseLeftButtonDown="shape_MouseLeftButtonDown" MouseLeftButtonUp="shape_MouseLeftButtonUp" MouseMove="shape_MouseMove" ToolTip="ŽIDLE"/>
+        <Rectangle Fill="#FF6DE0AC" Height="37" Canvas.Left="-70" Canvas.Top="120" Width="36" MouseLeftButtonDown="shape_MouseLeftButtonDown" MouseLeftButtonUp="shape_MouseLeftButtonUp" MouseMove="shape_MouseMove" ToolTip="ŽIDLE"/>
+        <Rectangle Fill="#FF6DE0AC" Height="37" Canvas.Left="-70" Canvas.Top="120" Width="36" MouseLeftButtonDown="shape_MouseLeftButtonDown" MouseLeftButtonUp="shape_MouseLeftButtonUp" MouseMove="shape_MouseMove" ToolTip="ŽIDLE"/>
+        <Rectangle Fill="#FF6DE0AC" Height="37" Canvas.Left="-70" Canvas.Top="120" Width="36" MouseLeftButtonDown="shape_MouseLeftButtonDown" MouseLeftButtonUp="shape_MouseLeftButtonUp" MouseMove="shape_MouseMove" ToolTip="ŽIDLE"/>
+        <Rectangle Fill="#FF6DE0AC" Height="37" Canvas.Left="-70" Canvas.Top="120" Width="36" MouseLeftButtonDown="shape_MouseLeftButtonDown" MouseLeftButtonUp="shape_MouseLeftButtonUp" MouseMove="shape_MouseMove" ToolTip="ŽIDLE"/>
+        <Rectangle Fill="#FF6DE0AC" Height="37" Canvas.Left="-70" Canvas.Top="120" Width="36" MouseLeftButtonDown="shape_MouseLeftButtonDown" MouseLeftButtonUp="shape_MouseLeftButtonUp" MouseMove="shape_MouseMove" ToolTip="ŽIDLE"/>
+        <Label Content="Rozložení" Canvas.Left="116" FontFamily="Courier New" FontSize="24"/>
+        <Rectangle Fill="Black" Height="14" Canvas.Left="32" Canvas.Top="298" Width="121"/>
+        <Label Content="Vchod" Canvas.Left="69" Canvas.Top="290" Foreground="White" Height="26"/>
+
+    </Canvas>
 </Window>
