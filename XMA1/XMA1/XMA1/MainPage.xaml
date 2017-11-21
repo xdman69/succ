@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XMA1"
+             x:Class="XMA1.MainPage">
+    <StackLayout>
+        <Label x:Name="valueLabel" 
+               Margin="0,20,0,0"
+               Text="Zadej Palindrom"
+               FontSize="Medium"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               VerticalOptions="Start" />
+        <Entry x:Name="entryValue"
+               Placeholder="Zadej Hodnotu"
+               FontSize="Small"/>
+        <Label  x:Name="check"
+                TextColor="DarkGreen"
+                Text=""
+                HorizontalOptions="Start"
+                Margin="10,5,0,5" />
+        <Button Text="Odeslat"
+                Margin="10,5,10,5"
+                Clicked="OnButtonClicked" />
+        <Label Margin="0,5,0,5"
+               Text="Seznam Palidromů"
+               TextColor="Black"
+               FontSize="Medium"
+               HorizontalOptions="Center" />
+        <ListView x:Name="nameList"
+                  VerticalOptions="StartAndExpand"
+                  Margin="10,0,10,0"/>
+    </StackLayout>
+</ContentPage>
