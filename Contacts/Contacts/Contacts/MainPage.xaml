@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Contacts"
+             x:Class="Contacts.MainPage">
+
+    <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="Start">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="https://i.ytimg.com/vi/j1tvVg2DJaw/maxresdefault.jpg"
+               Grid.Column="0"
+               Grid.Row="0"
+               Aspect="AspectFill"
+               VerticalOptions="StartAndExpand"
+               HeightRequest="200"
+               WidthRequest="600"/>
+
+        <Image Source="http://www.myschoolsupplybox.com/img/pre-a.png"
+               Grid.Column="0"
+               Grid.Row="0"
+               HeightRequest="30"
+               WidthRequest="30"
+               Margin="5,14,0,0"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"/>
+
+        <Button x:Name="Edit"
+                Grid.Column="0"
+                Grid.Row="0"
+                Text="Edit"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                BorderRadius="5"
+                Margin="0, 5, 5, 0"/>
+
+
+        <BoxView Color="White"
+                 Opacity="0.7"
+                 Grid.Column="0"
+                 VerticalOptions="End"
+                 Grid.Row="0"
+                 HeightRequest="50"
+                 WidthRequest="600"/>
+
+        <Label x:Name="Name"
+               Grid.Column="0"
+               Grid.Row="0"
+               VerticalTextAlignment="End"
+               TextColor="#2f2f30"
+               Text="Big SHAQ"
+               FontAttributes="Bold"
+               FontSize="40"
+               Margin="10, 0, 0, 2"/>
+
+        <StackLayout Grid.Column="0" Grid.Row="1">
+            <Label x:Name="Phone"
+               VerticalTextAlignment="Start"
+               TextColor="#424242"
+               Text="Phone Number"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               FontFamily="Roboto"
+               Margin="10, 5, 0, 0"/>
+
+            <Label x:Name="PhoneNum"
+               TextColor="#424242"
+               Text="+1-800-469-24"
+               FontSize="Medium"
+               Margin="10, 0, 0, 0"
+               FontFamily="Roboto"/>
+        </StackLayout>
+
+    </Grid>
+
+</ContentPage>
