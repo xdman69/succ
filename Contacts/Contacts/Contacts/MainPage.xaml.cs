@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.OS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,11 @@ namespace Contacts
         public MainPage()
         {
             InitializeComponent();
+        }
+        async void sample_click(object sender, EventArgs args)
+        {
+
+            await Navigation.PushModalAsync(new Page1());
         }
     }
 }

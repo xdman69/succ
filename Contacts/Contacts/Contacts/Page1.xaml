@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Contacts"
+             x:Class="Contacts.Page1">
+
+    <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="Start">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <BoxView Grid.Column="0"
+                 Grid.Row="0"
+                 BackgroundColor="#80B179"
+                 VerticalOptions="Start"
+                 WidthRequest="600"
+                 HeightRequest="60"
+                 HorizontalOptions="CenterAndExpand"/>
+        <Label Grid.Column="0"
+               Grid.Row="0"
+               Text="Contacts"
+               TextColor="White"
+               FontSize="Large"
+               Margin="20,15,0,0"
+               FontAttributes="Bold"
+               HorizontalOptions="Start"/>
+        <ListView  x:Name="listView" Grid.Column="0" Grid.Row="1" WidthRequest="360">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell ImageSource="{Binding Image}" Text="{Binding Text}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+
+</ContentPage>

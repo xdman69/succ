@@ -28,15 +28,21 @@
                WidthRequest="30"
                Margin="5,14,0,0"
                VerticalOptions="Start"
-               HorizontalOptions="Start"/>
+               HorizontalOptions="Start">
+               <Image.GestureRecognizers>
+                   <TapGestureRecognizer Tapped="sample_click"/>
+               </Image.GestureRecognizers>
+        </Image>
 
         <Button x:Name="Edit"
                 Grid.Column="0"
                 Grid.Row="0"
                 Text="Edit"
+                TextColor="White"
                 HorizontalOptions="End"
                 VerticalOptions="Start"
-                BorderRadius="5"
+                BackgroundColor="#919CA7"
+                BorderRadius="10"
                 Margin="0, 5, 5, 0"/>
 
 
@@ -64,17 +70,76 @@
                TextColor="#424242"
                Text="Phone Number"
                FontSize="Medium"
-               FontAttributes="Bold"
                FontFamily="Roboto"
                Margin="10, 5, 0, 0"/>
-
             <Label x:Name="PhoneNum"
-               TextColor="#424242"
+               TextColor="#8492A6"
                Text="+1-800-469-24"
+               FontSize="Small"
+               Margin="10, 0, 0, 0"
+               FontFamily="Roboto"/>
+            
+            <Label x:Name="email"
+               VerticalTextAlignment="Start"
+               TextColor="#424242"
+               Text="Email Adress"
                FontSize="Medium"
+               FontFamily="Roboto"
+               Margin="10, 5, 0, 0"/>
+            <Label x:Name="emailAdd"
+               TextColor="#8492A6"
+               Text="bigshaq@gmail.com"
+               FontSize="Small"
+               Margin="10, 0, 0, 0"
+               FontFamily="Roboto"/>
+
+            <Label x:Name="address"
+               VerticalTextAlignment="Start"
+               TextColor="#424242"
+               Text="Adress"
+               FontSize="Medium"
+               FontFamily="Roboto"
+               Margin="10, 5, 0, 0"/>
+            <Label x:Name="addfull"
+               TextColor="#8492A6"
+               Text="Roadman 16, CA"
+               FontSize="Small"
                Margin="10, 0, 0, 0"
                FontFamily="Roboto"/>
         </StackLayout>
+
+        <BoxView Grid.Row="2"
+                 Color="#3983D4"
+                 VerticalOptions="End"
+                 HorizontalOptions="Start"
+                 HeightRequest="70"
+                 WidthRequest="180"/>
+        <BoxView Grid.Row="2"
+                 Color="#80B179"
+                 VerticalOptions="End"
+                 HorizontalOptions="End"
+                 HeightRequest="70"
+                 WidthRequest="180"/>
+        <Label x:Name="message"
+               Grid.Row="2"
+               VerticalOptions="End"
+               HorizontalOptions="Start"
+               TextColor="#FFFFFF"
+               Text="MESSAGE"
+               FontAttributes="Bold"
+               FontSize="Medium"
+               FontFamily="Roboto"
+               Margin="47,0,0,22"/>
+        <Label x:Name="call"
+               Grid.Row="2"
+               VerticalOptions="End"
+               HorizontalOptions="End"
+               TextColor="#FFFFFF"
+               Text="CALL"
+               FontAttributes="Bold"
+               FontSize="Medium"
+               FontFamily="Roboto"
+               Margin="0,0,65,22"/>
 
     </Grid>
 
