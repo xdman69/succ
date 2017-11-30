@@ -29,7 +29,7 @@
                Margin="20,15,0,0"
                FontAttributes="Bold"
                HorizontalOptions="Start"/>
-        <ListView  x:Name="listView" Grid.Column="0" Grid.Row="1" WidthRequest="360">
+        <ListView  x:Name="listView" Grid.Column="0" Grid.Row="1" WidthRequest="360" ItemTapped="contact_click">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell ImageSource="{Binding Image}" Text="{Binding Text}"/>

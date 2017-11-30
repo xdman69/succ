@@ -8,25 +8,32 @@ namespace Contacts
 {
     class imagelist
     {
-        private string imgSource;
+        private int index;
+        private Xamarin.Forms.ImageSource image;
         private string text;
 
-        public string Image
+        public Xamarin.Forms.ImageSource Image
         {
-            get { return imgSource; }
-            set { imgSource = value; }
+            get { return image; }
+            set { image = value; }
         }
         public string Text
         {
             get { return text; }
             set { text = value; }
         }
-
-
-        public imagelist(string ImgSource, string Text)
+        public int Index
         {
-            this.imgSource = ImgSource;
+            get { return index; }
+            set { index = value; }
+        }
+
+
+        public imagelist(Xamarin.Forms.ImageSource Image , string Text, int Index)
+        {
+            this.image = Image;
             this.text = Text;
+            this.index = Index;
         }
     }
 }

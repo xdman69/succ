@@ -28,12 +28,25 @@ namespace Contacts
         {
             List<imagelist> conList = new List<imagelist>()
             {
-                new imagelist("http://www.freeiconspng.com/uploads/person-outline-icon-png-person-outline-icon-png-person-17.png", "Karel"),
-                new imagelist("http://www.freeiconspng.com/uploads/person-outline-icon-png-person-outline-icon-png-person-17.png", "Big Shaq"),
-                new imagelist("http://www.freeiconspng.com/uploads/person-outline-icon-png-person-outline-icon-png-person-17.png", "Amandy")
+                new imagelist(ImageSource.FromFile("contact.png"), "Karel", 1),
+                new imagelist(ImageSource.FromFile("contact.png"), "BigShaq", 2),
+                new imagelist(ImageSource.FromFile("contact.png"), "Amandy", 3)
             };
 
             listView.ItemsSource = conList;
+        }
+        async void contact_click(object sender, SelectedItemChangedEventArgs e)
+        {
+
+            if (e.SelectedItem == null)
+            {
+                return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+            } else
+            {
+                await Navigation.PopModalAsync();
+                await Navigation.PushModalAsync(new MainPage());
+            }
+            
         }
     }
 }

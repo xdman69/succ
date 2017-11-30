@@ -83,19 +83,19 @@ namespace evidence
 
         private void save_Click_xml(object sender, RoutedEventArgs e)
         {
+            IFileHelper save = new Json();
+            save = new xml();
+            xmlConv = false;
             string dirpath = Directory.GetCurrentDirectory();
-            if (xmlConv == false)
+            foreach (var json in carList_xml.Items)
             {
-                foreach (var json in carList_xml.Items)
-                {
-                    System.IO.File.AppendAllText(dirpath + @"\text.json", json.ToString() + "\n");
-                }
-            } else
+                string jsonData = json.ToString();
+                save.saveTo(xmlConv, jsonData, dirpath);
+            }
+            foreach (var xml in carList_xml.Items)
             {
-                foreach (var xml in carList_xml.Items)
-                {
-                    System.IO.File.AppendAllText(dirpath + @"\text.xml", xml.ToString() + "\n");
-                }
+                string xmlData = xml.ToString();
+                save.saveTo(xmlConv, xmlData, dirpath);
             }
         }
 
@@ -103,11 +103,9 @@ namespace evidence
         {
             foreach (var csv in carList.Items)
             {
-                StringBuilder csvcontent = new StringBuilder();
-                csvcontent.Append(csv);
-                csvcontent.AppendLine("");
                 string csvpath = Directory.GetCurrentDirectory() + @"\data.csv";
-                File.AppendAllText(csvpath, csvcontent.ToString());
+                IFileHelper save = new Csv();
+                save.saveTo(xmlConv, csv.ToString(), csvpath);
             }
         }
     }
