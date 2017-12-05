@@ -16,11 +16,7 @@ namespace Contacts
         }
         async void sample_click(object sender, EventArgs args)
         {
-            await Navigation.PushModalAsync(new Page1());
-        }
-        void xd()
-        {
-            
+            await App.Current.MainPage.Navigation.PopModalAsync();
         }
     }
 }
