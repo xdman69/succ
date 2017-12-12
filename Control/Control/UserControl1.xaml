@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Control.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Control"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" Content="Back" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Courier New" FontSize="14"></Label>
+        <Image Grid.Row="0" Grid.Column="0" Source="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/TriangleArrow-Left.svg/665px-TriangleArrow-Left.svg.png" Width="30"></Image>
+    </Grid>
+</UserControl>
