@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using System.IO;
+using FileHelpers;
 
 namespace draganddrop
 {
@@ -23,6 +25,39 @@ namespace draganddrop
         {
             InitializeComponent();
             AddHandler(Mouse.MouseUpEvent, new MouseButtonEventHandler(OnMouseUp), true);
+            var engine = new FileHelperEngine<Position>();
+            if (File.Exists("position.txt"))
+            {
+                var records = engine.ReadFile("position.txt");
+
+                foreach (var record in records)
+                {
+                    Console.WriteLine(record.Name);
+                    Console.WriteLine(record.x);
+                    Console.WriteLine(record.y);
+                    var element = record.Name;
+                    double x = record.x;
+                    double y = record.y;
+                    foreach (UIElement child in MyCanvas.Children)
+                    {
+                        if (child. == element)
+                        {
+                            Canvas.SetLeft(child, x);
+                            Canvas.SetTop(child, y);
+                        }
+                    }
+                }
+            }
+
+        }
+
+        [DelimitedRecord(",")]
+        public class Position
+        {
+
+            public string Name;
+            public double x;
+            public double y;
 
         }
 
@@ -56,6 +91,19 @@ namespace draganddrop
             pos = Round_Coordinates(position.X, position.Y);
             Canvas.SetLeft(elementBeingDragged,pos[0] - elementBeingDragged.ActualWidth / 2);
             Canvas.SetTop(elementBeingDragged,pos[1] - elementBeingDragged.ActualHeight / 2);
+            var engine = new FileHelperEngine<Position>();
+
+            var orders = new List<Position>();
+
+            orders.Add(new Position()
+            {
+                Name = elementBeingDragged.Name,
+                x = pos[0],
+                y = pos[1]
+            });
+
+            engine.WriteFile("position.txt", orders);
+
         }
         private double[] Round_Coordinates(double left, double top)
         {
@@ -74,56 +122,26 @@ namespace draganddrop
                     pos[x] = pos[x] - (pos[x] % 20);
                 }
 
-                if (x == 0 && pos[x] > 360)
+                if (x == 0 && pos[x] > 520)
                 {
-                    pos[x] = 360;
+                    pos[x] = 480;
                 }
                 else if (x == 0 && pos[x] < 0)
                 {
-                    pos[x] = 0;
+                    pos[x] = 40;
                 }
 
                 if (x == 1 && pos[x] > 280)
                 {
-                    pos[x] = 280;
+                    pos[x] = 240;
                 }
                 else if (x == 1 && pos[x] < 0)
                 {
-                    pos[x] = 0;
+                    pos[x] = 40;
                 }
             }
 
             return pos;
-        }
-        public void Write()
-        {
-            var engine = new FileHelperEngine<Poz>();
-
-            var orders = new List<Poz>();
-
-            orders.Add(new Poz()
-            {
-                pozL = pozice[0, 0],
-                pozT = pozice[0, 1],
-            });
-            orders.Add(new Poz()
-            {
-                pozL = pozice[1, 0],
-                pozT = pozice[1, 1],
-            });
-            orders.Add(new Poz()
-            {
-                pozL = pozice[2, 0],
-                pozT = pozice[2, 1],
-            });
-            orders.Add(new Poz()
-            {
-                pozL = pozice[3, 0],
-                pozT = pozice[3, 1],
-            });
-
-
-            engine.WriteFile("poz.txt", orders);
         }
 
 
