@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zakaznik", "Zakaznik\Zakaznik.csproj", "{4300359E-8149-428D-B1C2-A7372B6C7E16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4300359E-8149-428D-B1C2-A7372B6C7E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4300359E-8149-428D-B1C2-A7372B6C7E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4300359E-8149-428D-B1C2-A7372B6C7E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4300359E-8149-428D-B1C2-A7372B6C7E16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4648A03E-3620-4693-9374-5A7BB51CF8F3}
+	EndGlobalSection
+EndGlobal

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:draganddrop"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="572">
-    <Canvas x:Name="MyCanvas" Width="520" Height="280" Margin="0,30,0,0" MouseLeftButtonDown="OnMouseDown" MouseLeftButtonUp="OnMouseUp" MouseMove="OnMouseMove">
+    <Canvas x:Name="MyCanvas" Width="520" Height="280" Margin="0,30,0,0">
         <Canvas.Background>
             <DrawingBrush TileMode="Tile" Viewport="0,0,40,40" 
                                      ViewportUnits="Absolute">
@@ -22,19 +22,44 @@
                 </DrawingBrush.Drawing>
             </DrawingBrush>
         </Canvas.Background>
-        <Image x:Name="ammo" Height="80" Width="80" Source="D:\valesja15\draganddrop\draganddrop\art\ammo.png" RenderTransformOrigin="0.5,0.5" Canvas.Left="81" Canvas.Top="1"/>
-        <Image x:Name="gun" Height="80" Width="240" Source="D:\valesja15\draganddrop\draganddrop\art\gun.png" RenderTransformOrigin="0.5,0.5" Canvas.Left="-79" Canvas.Top="121">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Rectangle Fill="Black" VerticalAlignment="Stretch" Stroke="Black" Width="1" Canvas.Left="-5"/>
-        <Image x:Name="grenade" Height="40" Width="40" Source="D:\valesja15\draganddrop\draganddrop\art\grenade.png" RenderTransformOrigin="0.5,0.5"/>
-        <Label Content="Inventář" Canvas.Left="202" FontFamily="Courier New" FontSize="24" Canvas.Top="-64"/>
+        <Grid x:Name="MyGrid" Height="280" Width="520" MouseLeftButtonDown="OnMouseDown" MouseLeftButtonUp="OnMouseUp" MouseMove="OnMouseMove" AllowDrop="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image x:Name="ammo" Height="80" Width="80" Source="D:\valesja15\draganddrop\draganddrop\art\ammo.png" RenderTransformOrigin="0.5,0.5" Canvas.Left="81" Canvas.Top="1" Margin="1,0,39,0" Grid.ColumnSpan="3" Grid.Column="2" Grid.RowSpan="2"/>
+            <Image x:Name="gun" Height="80" Width="240" Source="D:\valesja15\draganddrop\draganddrop\art\gun.png" RenderTransformOrigin="0.5,0.5" Canvas.Left="-79" Canvas.Top="121" Margin="-81,39,1,1" Grid.ColumnSpan="4" Grid.RowSpan="3" Grid.Row="1">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="grenade" Height="40" Width="40" Source="D:\valesja15\draganddrop\draganddrop\art\grenade.png" RenderTransformOrigin="0.575,0.55" Margin="1,0,39,0" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="2"/>
+            <Label Content="Inventář" Canvas.Left="202" FontFamily="Courier New" FontSize="24" Canvas.Top="-64" Margin="192,-59,200,300"/>
+        </Grid>
     </Canvas>
 </Window>

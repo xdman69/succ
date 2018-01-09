@@ -32,26 +32,26 @@ namespace draganddrop
 
                 foreach (var record in records)
                 {
-                    Console.WriteLine(record.Name);
-                    Console.WriteLine(record.x);
-                    Console.WriteLine(record.y);
                     var element = record.Name;
                     double x = record.x;
                     double y = record.y;
-                    foreach (UIElement child in MyCanvas.Children)
-                    {
-                        if (child. == element)
-                        {
-                            Canvas.SetLeft(child, x);
-                            Canvas.SetTop(child, y);
-                        }
-                    }
+
+                    /*Image fieldTB = (Image)this.FindName(element);
+                    Canvas.SetLeft(fieldTB, x - fieldTB.ActualWidth);
+                    Canvas.SetTop(fieldTB, y - fieldTB.ActualHeight);*/
+
                 }
+
+                File.Delete("position.txt");
             }
 
         }
 
         [DelimitedRecord(",")]
+        public class DControl
+        {
+
+        }
         public class Position
         {
 
@@ -61,24 +61,31 @@ namespace draganddrop
 
         }
 
-        private bool _isBeingDragged;
-
-        public void OnMouseDown(object sender, MouseEventArgs args)
+        public void getPosition(UIElement element, out int col, out int row)
         {
-            if (!(args.OriginalSource is Canvas))
+            DControl control =  as DControl;
+            var point = Mouse.GetPosition(element);
+            row = 0;
+            col = 0;
+            double accumulatedHeight = 0.0;
+            double accumulatedWidth = 0.0;
+
+            // calc row mouse was over
+            foreach (var rowDefinition in control.RowDefinitions)
             {
-                _isBeingDragged = true;
+                accumulatedHeight += rowDefinition.ActualHeight;
+                if (accumulatedHeight >= point.Y)
+                    break;
+                row++;
             }
-        }
 
-        public void OnMouseMove(object sender, MouseEventArgs args)
-        {
-            if (_isBeingDragged)
+            // calc col mouse was over
+            foreach (var columnDefinition in control.ColumnDefinitions)
             {
-                var elementBeingDragged = (FrameworkElement)args.OriginalSource;
-                var position = args.GetPosition(MyCanvas);
-                Canvas.SetLeft(elementBeingDragged, position.X - elementBeingDragged.ActualWidth / 2);
-                Canvas.SetTop(elementBeingDragged, position.Y - elementBeingDragged.ActualHeight / 2);
+                accumulatedWidth += columnDefinition.ActualWidth;
+                if (accumulatedWidth >= point.X)
+                    break;
+                col++;
             }
         }
 
