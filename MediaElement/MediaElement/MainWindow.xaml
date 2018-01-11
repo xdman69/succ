@@ -1,0 +1,32 @@
+﻿<Window x:Class="MediaElement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediaElement"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="377.451" Width="525">
+    <Grid Background="#FF5F5C5C">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="0.7*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <MediaElement Grid.Row="0" Grid.ColumnSpan="7" x:Name="mediaPlayer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LoadedBehavior="Manual" AllowDrop="True"/>
+        <Button x:Name="playButton" Grid.Row="2" Grid.Column="1" Content="▶" VerticalAlignment="Stretch" Click="playButton_Click" Background="#56C5FF" BorderBrush="{x:Null}" Foreground="White" FontSize="20"/>
+        <Button x:Name="browseButton" Grid.Row="2" Content="📁" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="browseButton_Click" BorderBrush="{x:Null}" Background="#56C5FF" Foreground="White" FontSize="20"/>
+        <Button x:Name="forwardButton" Grid.Row="2" Content="▶▶" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="forwardButton_Click" BorderBrush="{x:Null}" Background="#56C5FF" Foreground="White" FontSize="20"/>
+        <Label x:Name="TimeStamp" Content="00:00 / 00:00" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="11" Foreground="White"></Label>
+        <Slider x:Name="volumeSlider" Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" Value="100" Maximum="255" Minimum="0" ValueChanged="volumeSlider_ValueChanged" TickFrequency="5"></Slider>
+        <Slider Name="sliProgress" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Grid.ColumnSpan="5" Thumb.DragStarted="sliProgress_DragStarted"  Thumb.DragCompleted="sliProgress_DragCompleted" ValueChanged="sliProgress_ValueChanged" />
+    </Grid>
+</Window>
