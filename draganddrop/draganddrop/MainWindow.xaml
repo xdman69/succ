@@ -60,7 +60,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="C:\Users\Honza\source\repos\succ\draganddrop\draganddrop\art\gun.png"></ImageBrush>
+                    <ImageBrush ImageSource="D:\valesja15\draganddrop\draganddrop\art\gun.png"></ImageBrush>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -80,7 +80,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="C:\Users\Honza\source\repos\succ\draganddrop\draganddrop\art\ammo.png"></ImageBrush>
+                    <ImageBrush ImageSource="D:\valesja15\draganddrop\draganddrop\art\ammo.png"></ImageBrush>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -101,7 +101,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="C:\Users\Honza\source\repos\succ\draganddrop\draganddrop\art\grenade.png"></ImageBrush>
+                    <ImageBrush ImageSource="D:\valesja15\draganddrop\draganddrop\art\grenade.png"></ImageBrush>
 
                 </Rectangle.Fill>
             </Rectangle>

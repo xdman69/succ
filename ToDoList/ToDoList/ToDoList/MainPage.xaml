@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ToDoList"
+             x:Class="ToDoList.MainPage">
+    <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+        <StackLayout BackgroundColor="#1976D2" Padding="10, 20, 0, 0">
+            <Label Text="To Do" HeightRequest="60" TextColor="White" FontSize="50" FontAttributes="Bold"></Label>
+        </StackLayout>
+        <ListView x:Name="listToDo"></ListView>
+        <StackLayout VerticalOptions="End" HorizontalOptions="End">
+            <Image Source="https://openclipart.org/image/2400px/svg_to_png/218242/1430954247.png"
+               HeightRequest="64"
+               WidthRequest="64"
+               Margin="0,80,15,0"
+               VerticalOptions="End"
+               HorizontalOptions="End">
+                <!--<Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="sample_click"/>
+            </Image.GestureRecognizers>-->
+            </Image>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
