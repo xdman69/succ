@@ -1,0 +1,19 @@
+﻿<Window x:Class="browser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:browser"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="17*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <WebBrowser x:Name="browser" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LoadCompleted="browser_LoadCompleted"/>
+        <TextBox x:Name="site" Grid.Row="0" Text="" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Stretch" FontSize="33" BorderThickness="0" KeyDown="site_KeyDown" TextChanged="site_TextChanged"/>
+        <Label Height = "1" VerticalAlignment="Bottom" Background="Black" Grid.Row="0"></Label>
+
+    </Grid>
+</Window>

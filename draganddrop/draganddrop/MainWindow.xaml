@@ -22,7 +22,7 @@
                 </DrawingBrush.Drawing>
             </DrawingBrush>
         </Canvas.Background>
-        <Grid x:Name="MyGrid" Height="280" Width="520" MouseLeftButtonDown="OnMouseDown" MouseLeftButtonUp="OnMouseUp" MouseMove="OnMouseMove" AllowDrop="True">
+        <Grid x:Name="grid" Height="280" Width="520" AllowDrop="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -47,19 +47,65 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Image x:Name="ammo" Height="80" Width="80" Source="D:\valesja15\draganddrop\draganddrop\art\ammo.png" RenderTransformOrigin="0.5,0.5" Canvas.Left="81" Canvas.Top="1" Margin="1,0,39,0" Grid.ColumnSpan="3" Grid.Column="2" Grid.RowSpan="2"/>
-            <Image x:Name="gun" Height="80" Width="240" Source="D:\valesja15\draganddrop\draganddrop\art\gun.png" RenderTransformOrigin="0.5,0.5" Canvas.Left="-79" Canvas.Top="121" Margin="-81,39,1,1" Grid.ColumnSpan="4" Grid.RowSpan="3" Grid.Row="1">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-            <Image x:Name="grenade" Height="40" Width="40" Source="D:\valesja15\draganddrop\draganddrop\art\grenade.png" RenderTransformOrigin="0.575,0.55" Margin="1,0,39,0" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="2"/>
-            <Label Content="Inventář" Canvas.Left="202" FontFamily="Courier New" FontSize="24" Canvas.Top="-64" Margin="192,-59,200,300"/>
+            <Rectangle
+                Name="rect2"
+                Width="240"
+                Height="80"
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.ColumnSpan="6"
+                Grid.RowSpan="2" MinWidth="240" MinHeight="80"
+                
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="C:\Users\Honza\source\repos\succ\draganddrop\draganddrop\art\gun.png"></ImageBrush>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect4"
+                Width="80"
+                Height="80"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="3"
+                Grid.Row="3"
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="C:\Users\Honza\source\repos\succ\draganddrop\draganddrop\art\ammo.png"></ImageBrush>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect5"
+                Width="40"
+                Height="40"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="8"
+                Grid.Row="2"
+                HorizontalAlignment="Center"
+                Grid.ColumnSpan="1" Grid.RowSpan="1"
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="C:\Users\Honza\source\repos\succ\draganddrop\draganddrop\art\grenade.png"></ImageBrush>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Content="Inventář" Canvas.Left="202" FontFamily="Courier New" FontSize="24" Canvas.Top="-64" Grid.ColumnSpan="5" Grid.Column="4" Margin="31,-75,38,73" />
         </Grid>
     </Canvas>
 </Window>

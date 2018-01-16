@@ -1,30 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Markup;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 using FileHelpers;
+using System.Windows.Shapes;
+using System;
 
 namespace draganddrop
 {
     public partial class MainWindow : Window
     {
+
+        Rectangle obj;
+        private bool _isRectDragInProg = false;
+        int row;
+        int column;
+        bool isFilled = false;
         public MainWindow()
         {
             InitializeComponent();
-            AddHandler(Mouse.MouseUpEvent, new MouseButtonEventHandler(OnMouseUp), true);
             var engine = new FileHelperEngine<Position>();
             if (File.Exists("position.txt"))
             {
@@ -33,35 +29,238 @@ namespace draganddrop
                 foreach (var record in records)
                 {
                     var element = record.Name;
-                    double x = record.x;
-                    double y = record.y;
+                    double x = record.xpos;
+                    double y = record.ypos;
 
-                    /*Image fieldTB = (Image)this.FindName(element);
-                    Canvas.SetLeft(fieldTB, x - fieldTB.ActualWidth);
-                    Canvas.SetTop(fieldTB, y - fieldTB.ActualHeight);*/
+                    Rectangle fieldTB = (Rectangle)this.FindName(element);
+                    Grid.SetColumn(fieldTB, (int)x);
+                    Grid.SetRow(fieldTB, (int)y);
 
                 }
-
-                File.Delete("position.txt");
             }
 
         }
 
         [DelimitedRecord(",")]
-        public class DControl
-        {
-
-        }
         public class Position
         {
 
             public string Name;
-            public double x;
-            public double y;
+            public double xpos;
+            public double ypos;
 
         }
 
-        public void getPosition(UIElement element, out int col, out int row)
+        private void move_Rectangle(object sender, MouseButtonEventArgs e)
+        {
+            int[,] pozice = new int[100, 2];
+            /*while (true)
+            {*/
+            if (_isRectDragInProg == false)
+            {
+                _isRectDragInProg = true;
+                obj = sender as Rectangle;
+                Panel.SetZIndex(obj, 100);
+
+                //Console.WriteLine(obj.Name);
+
+                obj.CaptureMouse();
+
+
+
+
+                //Console.WriteLine(pocetradky);
+                //Console.WriteLine(pocetsloupce);
+
+
+            }
+            else if (_isRectDragInProg == true)
+            {
+                List<Pozice> fill = new List<Pozice>();
+                List<Pozice> akt = new List<Pozice>();
+
+                foreach (UIElement cell in grid.Children)
+                {
+                    int x = Grid.GetColumn(cell);
+                    int y = Grid.GetRow(cell);
+                    int xa = Grid.GetColumnSpan(cell);
+                    int ya = Grid.GetRowSpan(cell);
+
+
+                    if (cell.GetValue(NameProperty).ToString() == obj.Name)
+                    {
+                        Console.WriteLine(cell.GetValue(NameProperty));
+                        Console.WriteLine(obj.Name);
+                        if (xa == 0)
+                        {
+
+                            akt.Add(new Pozice(x + 1, y));
+                            akt.Add(new Pozice(x, y));
+                        }
+                        else
+                        {
+                            akt.Add(new Pozice(x, y));
+                        }
+
+                        if (ya == 0)
+                        {
+                            akt.Add(new Pozice(x, y + 1));
+                            akt.Add(new Pozice(x, y));
+                        }
+                        else
+                        {
+                            akt.Add(new Pozice(x, y));
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine(cell.GetValue(NameProperty));
+
+
+                        if (xa == 0)
+                        {
+
+                            fill.Add(new Pozice(x + 1, y));
+                            fill.Add(new Pozice(x, y));
+                        }
+                        else
+                        {
+                            fill.Add(new Pozice(x, y));
+                        }
+
+                        if (ya == 0)
+                        {
+                            fill.Add(new Pozice(x, y + 1));
+                            fill.Add(new Pozice(x, y));
+                        }
+                        else
+                        {
+                            fill.Add(new Pozice(x, y));
+                        }
+
+                    }
+
+                }
+                foreach (var o in fill)
+                {
+                    Console.WriteLine(o.x + ", " + o.y);
+                }
+                foreach (var d in akt)
+                {
+                    Console.WriteLine(d.x + ", " + d.y);
+                }
+
+                foreach (var o in akt)
+                {
+
+                    foreach (var d in fill)
+                    {
+                        if (d.x == o.x && d.y == o.y)
+                        {
+                            isFilled = true;
+                            Console.WriteLine(isFilled);
+                        }
+
+
+                    }
+
+                }
+                if (isFilled == true)
+                {
+
+                    _isRectDragInProg = true;
+
+                }
+                else
+                {
+
+                    obj.ReleaseMouseCapture();
+
+                    Panel.SetZIndex(obj, 0);
+                    _isRectDragInProg = false;
+                    var engine = new FileHelperEngine<Position>();
+
+                    var orders = new List<Position>();
+
+                    orders.Add(new Position()
+                    {
+                        Name = obj.Name,
+                        xpos = Grid.GetColumn(obj),
+                        ypos = Grid.GetRow(obj)
+                    });
+
+                    engine.AppendToFile("position.txt", orders);
+                }
+                isFilled = false;
+                /*{
+                    //break;
+                }
+                else
+                {
+                    obj.ReleaseMouseCapture();
+                    _isRectDragInProg = false;
+                    _isRectDragInProg = true;
+                }*/
+
+            }
+            //}
+
+
+
+        }
+
+        private void rect_MouseMove(object sender, MouseEventArgs e)
+        {
+            //Console.WriteLine(_isRectDragInProg);
+            if (_isRectDragInProg == true)
+            {
+                var mousePos = e.GetPosition(grid);
+                double left;
+                double top;
+                if (mousePos.X < 0)
+                {
+                    left = 0;
+                }
+                else if (mousePos.X > 520)
+                {
+                    left = 8;
+                }
+                else
+                {
+                    left = mousePos.X / 40;
+                }
+
+                if (mousePos.Y < 0)
+                {
+                    top = 0;
+                }
+                else if (mousePos.Y > 280)
+                {
+                    top = 4;
+                }
+                else
+                {
+                    top = mousePos.Y / 40;
+                }
+
+                column = (int)left;
+                if (Grid.GetColumnSpan(obj) >= 2 && column >= 12)
+                {
+                    column = 13 - Grid.GetColumnSpan(obj);
+                }
+                row = (int)top;
+                if (Grid.GetRowSpan(obj) >= 2 && row >= 6)
+                {
+                    row = 7 - Grid.GetRowSpan(obj);
+                }
+
+
+                Grid.SetColumn(obj, column);
+                Grid.SetRow(obj, row);
+            }
+        }
+        /*public void getPosition(UIElement element, out int col, out int row)
         {
             DControl control =  as DControl;
             var point = Mouse.GetPosition(element);
@@ -152,7 +351,7 @@ namespace draganddrop
         }
 
 
-        /*bool captured = false;
+        bool captured = false;
         double x_shape, x_canvas, y_shape, y_canvas;
         UIElement source = null;
 
