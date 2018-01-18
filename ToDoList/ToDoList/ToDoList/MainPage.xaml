@@ -9,7 +9,7 @@
         </StackLayout>
         <ListView x:Name="listToDo"></ListView>
         <StackLayout VerticalOptions="End" HorizontalOptions="End">
-            <Image Source="https://openclipart.org/image/2400px/svg_to_png/218242/1430954247.png"
+            <Image Source="icon.png"
                HeightRequest="64"
                WidthRequest="64"
                Margin="0,80,15,0"
