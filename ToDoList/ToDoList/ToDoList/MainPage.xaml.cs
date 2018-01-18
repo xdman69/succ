@@ -1,28 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 
-namespace ToDoList
+namespace SQLiteExample
 {
-	public partial class MainPage : ContentPage
-	{
-		public MainPage()
-		{
-			InitializeComponent();
-            FillList();
-        }
-
-        public void FillList()
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
         {
-            List<string> list = new List<string>()
+            InitializeComponent();
+            var dbConnection = App.Database;
+
+            TodoItemDatabase todoItemDatabase = App.Database;
+            TodoItem item = new TodoItem();
+            item.Name = "item";
+            item.Text = "item text";
+            App.Database.SaveItemAsync(item);
+
+
+            var itemsFromDb = App.Database.GetItemsAsync().Result;
+
+            Debug.WriteLine("                             ");
+            Debug.WriteLine("                             ");
+            Debug.WriteLine("                             ");
+
+            Debug.WriteLine(itemsFromDb.Count);
+            foreach (TodoItem todoItem in itemsFromDb)
             {
-                "NAKUP CHLEBÍK", "NAKUP KEDLUBEN", "JDI VRÁTIT FLAŠKY"
-            };
-            listToDo.ItemsSource = list;
+                Debug.WriteLine(todoItem);
+            }
+
+            Debug.WriteLine("                             ");
+            Debug.WriteLine("                             ");
+            Debug.WriteLine("                             ");
 
         }
-	}
+    }
 }
