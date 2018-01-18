@@ -9,7 +9,7 @@
         </StackLayout>
         <ListView x:Name="listToDo"></ListView>
         <StackLayout VerticalOptions="End" HorizontalOptions="End">
-            <Image Source="icon.png"
+            <Image Source="iconpls.png"
                HeightRequest="64"
                WidthRequest="64"
                Margin="0,80,15,0"
