@@ -51,5 +51,10 @@ namespace SQLiteExample
         {
             return database.DeleteAsync(item);
         }
+
+        public Task<int> DeleteItems()
+        {
+            return database.ExecuteAsync("DELETE FROM [TodoItem]");
+        }
     }
 }

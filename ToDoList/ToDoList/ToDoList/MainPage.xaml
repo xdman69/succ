@@ -2,22 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ToDoList"
-             x:Class="ToDoList.MainPage">
+             x:Class="SQLiteExample.MainPage">
     <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand">
         <StackLayout BackgroundColor="#1976D2" Padding="10, 20, 0, 0">
             <Label Text="To Do" HeightRequest="60" TextColor="White" FontSize="50" FontAttributes="Bold"></Label>
         </StackLayout>
         <ListView x:Name="ToDoList"></ListView>
-        <StackLayout VerticalOptions="End" HorizontalOptions="End">
+        <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="EndAndExpand">
             <Image Source="iconpls.png"
                HeightRequest="64"
                WidthRequest="64"
-               Margin="0,80,15,0"
+               Margin="0,0,0,7"
+               VerticalOptions="End"
+               HorizontalOptions="Center">
+               <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="addAsync"/>
+               </Image.GestureRecognizers>-->
+            </Image>
+            <Image Source="icondelete.png"
+               HeightRequest="80"
+               WidthRequest="80"
+               Margin="0,80,5,0"
                VerticalOptions="End"
                HorizontalOptions="End">
-                <!--<Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="sample_click"/>
-            </Image.GestureRecognizers>-->
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="sample_click"/>
+                </Image.GestureRecognizers>
             </Image>
         </StackLayout>
     </StackLayout>

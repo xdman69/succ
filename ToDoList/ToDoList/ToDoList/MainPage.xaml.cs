@@ -11,23 +11,21 @@ namespace SQLiteExample
 {
     public partial class MainPage : ContentPage
     {
+        public ToDoList.AddTask detailPage = new ToDoList.AddTask();
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             var dbConnection = App.Database;
 
             TodoItemDatabase todoItemDatabase = App.Database;
             TodoItem item = new TodoItem();
-            item.Name = "item";
-            item.Text = "item text";
+            item.Name = "VYNES KOŠ";
+            item.Text = "Musíš vynést koš brácho";
             App.Database.SaveItemAsync(item);
 
 
             var itemsFromDb = App.Database.GetItemsAsync().Result;
-
-            Debug.WriteLine("                             ");
-            Debug.WriteLine("                             ");
-            Debug.WriteLine("                             ");
 
             Debug.WriteLine(itemsFromDb.Count);
             foreach (TodoItem todoItem in itemsFromDb)
@@ -35,10 +33,19 @@ namespace SQLiteExample
                 Debug.WriteLine(todoItem);
             }
 
-            Debug.WriteLine("                             ");
-            Debug.WriteLine("                             ");
-            Debug.WriteLine("                             ");
 
+            ToDoList.ItemsSource = itemsFromDb;
+        }
+
+        void sample_click(object sender, EventArgs args)
+        {
+            var dbConnection = App.Database;
+            dbConnection.DeleteItems();
+        }
+
+        async void addAsync(object sender, EventArgs args)
+        {
+            await Navigation.PushModalAsync(detailPage);
         }
     }
 }

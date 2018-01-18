@@ -13,8 +13,6 @@ namespace SQLiteExample
         public App()
         {
             MainPage = new NavigationPage(new MainPage());
-            // OR abstract
-            // MainPage = new NavigationPage(new AbstractDatabaseAccess());
         }
 
         protected override void OnStart()
