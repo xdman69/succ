@@ -7,7 +7,7 @@
         <StackLayout BackgroundColor="#1976D2" Padding="10, 20, 0, 0">
             <Label Text="To Do" HeightRequest="60" TextColor="White" FontSize="50" FontAttributes="Bold"></Label>
         </StackLayout>
-        <ListView x:Name="ToDoList"></ListView>
+        <ListView x:Name="ToDoList" ItemSelected="ItemSelected"></ListView>
         <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="EndAndExpand">
             <Image Source="iconpls.png"
                HeightRequest="64"

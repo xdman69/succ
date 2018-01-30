@@ -3,11 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDoList.AddTask">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
             <StackLayout BackgroundColor="#1976D2" Padding="10, 20, 0, 0">
                 <Label Text="Add Task" HeightRequest="60" TextColor="White" FontSize="50" FontAttributes="Bold"></Label>
             </StackLayout>
-            <Label Text="Task Name"></Label>
+            <Label>
+                
+                Název Úkolu
+                
+            </Label>
+            <Editor x:Name="taskName"></Editor>
+            <Label>
+                Popis Úkolu
+                
+            </Label>
+            <Editor x:Name="taskDesc"></Editor>
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand">
+                <Button Text="Add" Clicked="HandleAdd"></Button>
+                <Button Text="Zpět" Clicked="GoBackAsync"></Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

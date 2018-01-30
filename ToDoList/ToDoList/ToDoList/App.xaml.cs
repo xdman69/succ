@@ -44,5 +44,7 @@ namespace SQLiteExample
                 return _database;
             }
         }
+
+        public NavigationPage AddTask { get; set; }
     }
 }

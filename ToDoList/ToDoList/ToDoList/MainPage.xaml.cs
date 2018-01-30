@@ -19,10 +19,10 @@ namespace SQLiteExample
             var dbConnection = App.Database;
 
             TodoItemDatabase todoItemDatabase = App.Database;
-            TodoItem item = new TodoItem();
+            /*TodoItem item = new TodoItem();
             item.Name = "VYNES KOŠ";
             item.Text = "Musíš vynést koš brácho";
-            App.Database.SaveItemAsync(item);
+            App.Database.SaveItemAsync(item);*/
 
 
             var itemsFromDb = App.Database.GetItemsAsync().Result;
@@ -41,11 +41,49 @@ namespace SQLiteExample
         {
             var dbConnection = App.Database;
             dbConnection.DeleteItems();
+            ToDoList.BeginRefresh();
+            var itemsFromDb = App.Database.GetItemsAsync().Result;
+            ToDoList.ItemsSource = itemsFromDb;
+            ToDoList.EndRefresh();
+
         }
 
         async void addAsync(object sender, EventArgs args)
         {
             await Navigation.PushModalAsync(detailPage);
+        }
+        async void ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var action = await DisplayActionSheet("Úkol", "Zrušit", null, "Upravit", "Smazat");
+            switch (action)
+            {
+                case "Upravit":
+                    await Navigation.PushModalAsync(detailPage);
+
+
+                    break;
+                case "Smazat":
+                    IFileHelper filehelperInstance = DependencyService.Get<IFileHelper>();
+                    TodoItemDatabase delete = new TodoItemDatabase(filehelperInstance.GetLocalFilePath("TodoSQLite.db3"));
+
+                    var item = (TodoItem)e.SelectedItem;
+
+                    await delete.DeleteItemAsync(item);
+
+                    ToDoList.BeginRefresh();
+                    var itemsFromDb = App.Database.GetItemsAsync().Result;
+                    ToDoList.ItemsSource = itemsFromDb;
+                    ToDoList.EndRefresh();
+                    break;                
+            }
+        }
+
+        protected override void OnAppearing()
+        {
+            ToDoList.BeginRefresh();
+            var itemsFromDb = App.Database.GetItemsAsync().Result;
+            ToDoList.ItemsSource = itemsFromDb;
+            ToDoList.EndRefresh();
         }
     }
 }
