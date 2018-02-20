@@ -58,13 +58,13 @@
                 Grid.RowSpan="2" MinWidth="240" MinHeight="80"
                 
                 >
-                <Rectangle.Fill>
+                    <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\valesja15\draganddrop\draganddrop\art\gun.png"></ImageBrush>
+                        <ImageBrush ImageSource="D:\valesja15\draganddrop\draganddrop\art\gun.png"></ImageBrush>
 
-                </Rectangle.Fill>
-            </Rectangle>
-            <Rectangle
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle
                 Name="rect4"
                 Width="80"
                 Height="80"

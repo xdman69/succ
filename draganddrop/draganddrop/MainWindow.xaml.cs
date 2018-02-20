@@ -38,6 +38,7 @@ namespace draganddrop
 
                 }
             }
+            Zbran zbran = new Zbran(250);
 
         }
 

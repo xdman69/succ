@@ -12,5 +12,15 @@ namespace draganddrop
         public string TypZbrane { get; set; }
         public int Damage { get; set; }
 
+        public Zbran(int damage)
+        {
+            Damage = damage;
+        }
+
+        public override int Value()
+        {
+            return Damage;
+        }
+
     }
 }

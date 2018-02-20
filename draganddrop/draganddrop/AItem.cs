@@ -9,6 +9,8 @@ namespace draganddrop
 {
     public abstract class AItem
     {
+        abstract public int Value();
+
         public int Vaha;
         public string Typ;
         public string NazevItemu { get; set; }

@@ -1,0 +1,45 @@
+﻿<Page x:Class="Uctenkovka.Past"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Uctenkovka"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="525"
+      Title="Past">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Content="Nový výdaj" HorizontalAlignment="Right" Margin="0,0,10,50" VerticalAlignment="Bottom" Width="106" Grid.Column="1" Grid.Row="0" Click="Button_Click"/>
+        <ListView x:Name="expensesList" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" BorderThickness="5" Grid.Column="0" Grid.Row="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Smazat výdaj" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Bottom" Width="117" Grid.Column="1" Click="Button_Click_1"/>
+        <DatePicker x:Name="dateText" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,10,0" Grid.Column="1" Grid.Row="0">
+            <DatePicker.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                    <Setter Property="Text" Value=" "/>
+                    <Setter Property="Focusable" Value="False"/>
+                    <Setter Property="IsEnabled" Value="False" />
+                    <Setter Property="IsHitTestVisible" Value="False"/>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <TextBox x:Name="priceText" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Height="23" Margin="10" TextWrapping="Wrap" Text="" Width="120"/>
+        <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="0,15,140,0" TextWrapping="Wrap" Text="Výdaj" VerticalAlignment="Top"/>
+        <TextBlock x:Name="now" HorizontalAlignment="Left" Margin="17,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="0"/>
+        <TextBlock x:Name="sum" HorizontalAlignment="Left" Margin="175,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="0"/>
+    </Grid>
+</Page>
