@@ -21,7 +21,6 @@ namespace Uctenkovka
     public partial class MainWindow : Window
     {
         Past pastPage = new Past();
-        Future futurePage = new Future();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,8 +34,7 @@ namespace Uctenkovka
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            futurePage.Background = Brushes.LightGray;
-            this.Content = futurePage;
+            System.Environment.Exit(1);
         }
     }
 }

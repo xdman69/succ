@@ -98,6 +98,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Category.cs" />
+    <Compile Include="CategoryDatabase.cs" />
     <Compile Include="Expense.cs" />
     <Compile Include="ExpenseDatabase.cs" />
     <Compile Include="Future.xaml.cs">
