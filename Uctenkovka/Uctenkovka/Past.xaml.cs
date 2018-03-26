@@ -25,6 +25,7 @@ namespace Uctenkovka
     {
         ObservableCollection<Expense> exCol = new ObservableCollection<Expense>();
         ObservableCollection<Category> catCol = new ObservableCollection<Category>();
+        ObservableCollection<Debt> debtCol = new ObservableCollection<Debt>();
 
         DateTime today = DateTime.Today;
         private static ExpenseDatabase _database;
@@ -34,7 +35,7 @@ namespace Uctenkovka
             {
                 if(_database == null)
                 {
-                    _database = new ExpenseDatabase("D:/valesja15/Expense.db");
+                    _database = new ExpenseDatabase(@"C:\Users\Honza\source\repos\succ\Uctenkovka\Expense.db");
                 }
                 return _database;
             }
@@ -47,9 +48,22 @@ namespace Uctenkovka
             {
                 if (_databaseCat == null)
                 {
-                    _databaseCat = new CategoryDatabase("D:/valesja15/Category.db");
+                    _databaseCat = new CategoryDatabase(@"C:\Users\Honza\source\repos\succ\Uctenkovka\Category.db");
                 }
                 return _databaseCat;
+            }
+        }
+
+        private static DebtDatabase _databaseDebt;
+        private static DebtDatabase DatabaseDebt
+        {
+            get
+            {
+                if (_databaseDebt == null)
+                {
+                    _databaseDebt = new DebtDatabase(@"C:\Users\Honza\source\repos\succ\Uctenkovka\Debt.db");
+                }
+                return _databaseDebt;
             }
         }
 
@@ -57,6 +71,7 @@ namespace Uctenkovka
         {
             var itemsFromDb = Database.GetItemsAsync().Result;
             var itemsCatFromDb = DatabaseCat.GetItemsAsync().Result;
+            var itemsDebtFromDb = DatabaseDebt.GetItemsAsync().Result;
             now.Text = "Celková útrata za " + itemsFromDb.Count + " položek ke dni " + today.ToString("dd/MM/");
             int suma = 0;
             foreach (var data in itemsFromDb)
@@ -68,6 +83,17 @@ namespace Uctenkovka
             {
                 now.Text = "Žádná položka v seznamu";
             }
+            int overduePrice = 0;
+            foreach (var data in itemsDebtFromDb)
+            {
+                int result = DateTime.Compare(today.Date, Convert.ToDateTime(data.Date));
+                debtCount.Text = "Dluh celkem: " + data.Price;
+                if (result >= 1)
+                {
+                    overduePrice += data.Price;
+                    debtDue.Text = "Dluh přesčas: " + overduePrice;
+                }
+            }
             catCount.Text = "Počet kategorií: " + itemsCatFromDb.Count.ToString();
         }
 
@@ -77,7 +103,9 @@ namespace Uctenkovka
 
             var itemsFromDb = Database.GetItemsAsync().Result;
             var itemsCatFromDb = DatabaseCat.GetItemsAsync().Result;
+            var itemsDebtFromDb = DatabaseDebt.GetItemsAsync().Result;
             catList.ItemsSource = itemsCatFromDb;
+            debtList.ItemsSource = itemsDebtFromDb;
             expensesList.ItemsSource = itemsFromDb;
             catCombo.ItemsSource = itemsCatFromDb;
             catPriceCombo.ItemsSource = itemsCatFromDb;
@@ -242,6 +270,65 @@ namespace Uctenkovka
 
             catCount.Text = "Počet kategorií: " + itemsCatFromDb.Count.ToString();
 
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            var dbConnection = DatabaseDebt;
+
+            DebtDatabase produktDatabase = DatabaseDebt;
+
+            Debt item = new Debt();
+            string name = nameDebt.Text;
+            string price = newDebt.Text;
+            string date = dateDebt.Text;
+
+            int x = Int32.Parse(price);
+            item.Price = x;
+            item.Date = date;
+            item.Name = name;
+           
+
+            DatabaseDebt.SaveItemAsync(item);
+            debtCol.Add(item);
+            var itemsFromDb = DatabaseDebt.GetItemsAsync().Result;
+
+            debtList.ItemsSource = debtCol;
+            int overduePrice = 0;
+            foreach (var data in itemsFromDb)
+            {
+                int result = DateTime.Compare(today.Date, Convert.ToDateTime(data.Date));
+                debtCount.Text = "Dluh celkem: " + data.Price;
+                if (result >= 1)
+                {
+                    overduePrice += data.Price;
+                    debtDue.Text = "Dluh přesčas: " + overduePrice;
+                }
+            }
+        }
+
+        private async void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            var id = debtList.SelectedIndex;
+
+            var item = (Debt)debtList.SelectedItem;
+
+            debtCol.Remove(item);
+            await DatabaseDebt.DeleteItemAsync(item);
+
+            var itemsFromDb = DatabaseDebt.GetItemsAsync().Result;
+            debtList.ItemsSource = itemsFromDb;
+            int overduePrice = 0;
+            foreach (var data in itemsFromDb)
+            {
+                int result = DateTime.Compare(today.Date, Convert.ToDateTime(data.Date));
+                debtCount.Text = "Dluh celkem: " + data.Price;
+                if (result >= 1)
+                {
+                    overduePrice += data.Price;
+                    debtDue.Text = "Dluh přesčas: " + overduePrice;
+                }
+            }
         }
     }
 }

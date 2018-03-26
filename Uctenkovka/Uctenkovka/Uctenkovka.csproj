@@ -100,6 +100,8 @@
     </Compile>
     <Compile Include="Category.cs" />
     <Compile Include="CategoryDatabase.cs" />
+    <Compile Include="Debt.cs" />
+    <Compile Include="DebtDatabase.cs" />
     <Compile Include="Expense.cs" />
     <Compile Include="ExpenseDatabase.cs" />
     <Compile Include="Future.xaml.cs">
