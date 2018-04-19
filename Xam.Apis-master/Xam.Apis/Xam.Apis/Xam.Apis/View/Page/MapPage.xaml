@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xam.Apis.View.Page.MapPage"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:local="clr-namespace:Xam.Apis;assembly=Xam.Apis"
+             Title="Default Map">
+    <ContentPage.Content>
+        <Grid >
+            <maps:Map
+                x:Name="CustomMap"
+                IsShowingUser="true"
+                MapType="Hybrid" 
+                />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

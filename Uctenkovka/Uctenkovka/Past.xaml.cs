@@ -35,7 +35,7 @@ namespace Uctenkovka
             {
                 if(_database == null)
                 {
-                    _database = new ExpenseDatabase(@"C:\Users\Honza\source\repos\succ\Uctenkovka\Expense.db");
+                    _database = new ExpenseDatabase(@"D:\valesja15\GIT\Uctenkovka\Expense.db");
                 }
                 return _database;
             }
@@ -48,7 +48,7 @@ namespace Uctenkovka
             {
                 if (_databaseCat == null)
                 {
-                    _databaseCat = new CategoryDatabase(@"C:\Users\Honza\source\repos\succ\Uctenkovka\Category.db");
+                    _databaseCat = new CategoryDatabase(@"D:\valesja15\GIT\Uctenkovka\Category.db");
                 }
                 return _databaseCat;
             }
@@ -61,7 +61,7 @@ namespace Uctenkovka
             {
                 if (_databaseDebt == null)
                 {
-                    _databaseDebt = new DebtDatabase(@"C:\Users\Honza\source\repos\succ\Uctenkovka\Debt.db");
+                    _databaseDebt = new DebtDatabase(@"D:\valesja15\GIT\Uctenkovka\Debt.db");
                 }
                 return _databaseDebt;
             }
@@ -87,7 +87,7 @@ namespace Uctenkovka
             foreach (var data in itemsDebtFromDb)
             {
                 int result = DateTime.Compare(today.Date, Convert.ToDateTime(data.Date));
-                debtCount.Text = "Dluh celkem: " + data.Price;
+                //debtCount.Text = "Dluh celkem: " + data.Price;
                 if (result >= 1)
                 {
                     overduePrice += data.Price;
@@ -298,7 +298,7 @@ namespace Uctenkovka
             foreach (var data in itemsFromDb)
             {
                 int result = DateTime.Compare(today.Date, Convert.ToDateTime(data.Date));
-                debtCount.Text = "Dluh celkem: " + data.Price;
+                //debtCount.Text = "Dluh celkem: " + data.Price;
                 if (result >= 1)
                 {
                     overduePrice += data.Price;
@@ -322,7 +322,7 @@ namespace Uctenkovka
             foreach (var data in itemsFromDb)
             {
                 int result = DateTime.Compare(today.Date, Convert.ToDateTime(data.Date));
-                debtCount.Text = "Dluh celkem: " + data.Price;
+                //debtCount.Text = "Dluh celkem: " + data.Price;
                 if (result >= 1)
                 {
                     overduePrice += data.Price;

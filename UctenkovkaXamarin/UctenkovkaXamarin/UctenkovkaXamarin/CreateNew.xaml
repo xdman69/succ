@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UctenkovkaXamarin.CreateNew">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="0.7*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Text="Přidat" 
+                   VerticalOptions="Start" 
+                   HorizontalOptions="Center" 
+                   Font="30"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="0"
+                   TextColor="Black"
+                   Margin="0, 15, 0, 0"
+                   FontFamily="sans-serif-condensed"/>
+            <Image Source="plussign.png"
+               Grid.Column="1"
+               WidthRequest="35.0"
+               HeightRequest="35.0"
+               Margin="0,20,15,0"
+               VerticalOptions="Start"
+               HorizontalOptions="End"
+               Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="newClick"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="back.png"
+               Grid.Column="0"
+               WidthRequest="35.0"
+               HeightRequest="35.0"
+               Margin="15,20,0,0"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+               Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="backClick"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView HeightRequest="0.5"
+                 Grid.Row="0"
+                 Color="Black"
+                 Grid.Column="0"
+                 VerticalOptions="End"
+                 HorizontalOptions="FillAndExpand"
+                 Grid.ColumnSpan="2"/>
+            <Label Text="Přidat Účtenku"
+               Grid.Column="0"
+               TextColor="Black"
+               VerticalOptions="Start"
+               Font="20"
+               HorizontalOptions="Start"
+               Margin="17, 15, 0, 0"
+               Grid.Row="1"
+               FontFamily="sans-serif-light"/>
+            <StackLayout Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="15,0,15,0">
+                <Entry Placeholder="Název Položky"/>
+                <DatePicker></DatePicker>
+                <Entry Placeholder="FIK"/>
+                <Entry Placeholder="BKP"/>
+                <Entry Placeholder="Adresa" ></Entry>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
