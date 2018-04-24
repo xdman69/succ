@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"        
+             xmlns:local="clr-namespace:XamarinMaps"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"   
              x:Class="UctenkovkaXamarin.CreateNew">
     <ContentPage.Content>
         <Grid>
@@ -69,8 +71,9 @@
                 <DatePicker></DatePicker>
                 <Entry Placeholder="FIK"/>
                 <Entry Placeholder="BKP"/>
-                <Entry Placeholder="Adresa" ></Entry>
+                <Entry x:Name="Adress" Placeholder="Adresa"/>
             </StackLayout>
+            <maps:Map x:Name="map" MapType="Street" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
