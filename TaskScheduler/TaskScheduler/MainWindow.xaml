@@ -9,6 +9,5 @@
     <Grid>
         <ListView x:Name="taskList" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="363px"></ListView>
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100px" Height="30px" Margin="0 0 15 15" Click="DeleteButton_Click">Delete Task</Button>
-        <Button VerticalAlignment="Bottom" 
     </Grid>
 </Window>
