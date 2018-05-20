@@ -31,7 +31,7 @@ namespace TaskScheduler
             TaskService ts = new TaskService();
 
             TaskDefinition td = ts.NewTask();
-            td.RegistrationInfo.Description = "Does something";
+            td.RegistrationInfo.Description = "Test";
             td.Principal.LogonType = TaskLogonType.InteractiveToken;
 
             TimeTrigger tTrigger = (TimeTrigger)td.Triggers.Add(new TimeTrigger());
